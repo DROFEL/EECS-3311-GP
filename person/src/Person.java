@@ -28,7 +28,7 @@ public class Person{
     }
 
     public void assignToTeam(){
-        // need a helper function that will take a person oject then addeds it to the team.
+        // need a helper function that will take a person oject then addeds it to the team object.
     }
 
 
