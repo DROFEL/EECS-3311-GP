@@ -3,6 +3,7 @@ public class Person{
     private int userID;
     private String name; 
     private String contactInfo;
+    // a list for what team a person is on 
 
     // defult constuctor 
     public Person(){
