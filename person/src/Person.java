@@ -6,7 +6,7 @@ public class Person{
     // a list for what team a person is on 
 
     // defult constuctor 
-    public Person(){
+    public Person(){// test
         this.userID = 0;
         this.name = NULL;
         this.contactInfo = NULL;
