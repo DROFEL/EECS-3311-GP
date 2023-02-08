@@ -6,8 +6,9 @@ public class Person{
     private int userID;
     private String name; 
     private String contactInfo;
-    private List <String> personTeams = new ArrayList<>();
     // a list for what team a person is on 
+    private List <String> personTeams = new ArrayList<>();
+
 
     // defult constuctor 
     /**
