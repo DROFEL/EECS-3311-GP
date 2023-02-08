@@ -1,27 +1,36 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Person{
 
     private int userID;
     private String name; 
     private String contactInfo;
+    private List <String> personTeams = new ArrayList<>();
     // a list for what team a person is on 
 
     // defult constuctor 
+    /**
+     * 
+     */
     public Person(){// test
         this.userID = 0;
-        this.name = NULL;
-        this.contactInfo = NULL;
+        this.name = "";
+        this.contactInfo = "";
+        this.personTeams = null;
     }
 
     // Constuctor
-    public Person(int userID, String name, String contactInfo){
+    public Person(int userID, String name, String contactInfo, List<String> personteams){
         this.userID = userID;
         this.name = name;
         this.contactInfo = contactInfo;
+        this.personTeams = personteams;
     }
 
     // Create a new object of person 
-    public void newPerson(int perUserID, String perName, String perContactInfo){
-        Person newPerson = new Person(perUserID, perName, perContactInfo);
+    public void newPerson(int perUserID, String perName, String perContactInfo, List<String> personTeam){
+        Person newPerson = new Person(perUserID, perName, perContactInfo, personTeam);
     }
 
     public void newTeam(){
