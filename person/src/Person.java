@@ -43,9 +43,12 @@ public class Person{
         this.personTeams.add(0, team);
     }
 
+
+    // given a person object add a team to there team list
     public void assignToTeam( Person person, String team){
-        // need a helper function that will take a person oject then addeds it to the team object.
-        // person.personTeams = person.personTeams.add(0, team);
+        List <String> newTeams = person.personTeams;
+        newTeams.add(0, team);
+        person.personTeams = newTeams;
     }
 
 
