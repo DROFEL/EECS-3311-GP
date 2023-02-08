@@ -37,8 +37,14 @@ public class Person{
         //Team newTeam = new Team();
     }
 
-    public void assignToTeam(){
+    public void assignToTeam( String team){
         // need a helper function that will take a person oject then addeds it to the team object.
+        this.personTeams.add(0, team);
+    }
+
+    public void assignToTeam( Person person, String team){
+        // need a helper function that will take a person oject then addeds it to the team object.
+        // person.personTeams = person.personTeams.add(0, team);
     }
 
 
