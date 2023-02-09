@@ -1,10 +1,10 @@
 import Team.java; //todo; implement Team
 public class Task{
-    String taskID;
-    String name;
-    String status;
-    String comments;
-    Team team; 
+    Private String taskID;
+    Private String name;
+    Private String status;
+    Private String comments;
+    Private Team team; 
 
     //constructor
     public Task (){
