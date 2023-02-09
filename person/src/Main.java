@@ -13,12 +13,13 @@ public class Main {
          teamNames.add("Team 2");
         // Create a new Person object
         Person person = new Person(1520, "John Doe", "john.doe@email.com", teamNames);
+        Person person2 = new Person(5960, "Olivia Green", "olivia.green@email.com", teamNames);
 
         // Assign the person to a team
         person.assignToTeam("Team 1");
 
         // Create a new Team object
-        Team team = new Team(person.getUserID(), Arrays.asList(person.getUserID()), 1, 1);
+        Team team = new Team(person.getUserID(), Arrays.asList(person.getUserID(),person2.getUserID()), 1, 1);
 
         System.out.println("Team Leader: " + team.getLeader());
         System.out.println("Team Members: " + team.getMembers());
