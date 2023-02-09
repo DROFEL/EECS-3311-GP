@@ -8,6 +8,7 @@ public class Person{
     private String contactInfo;
     // a list for what team a person is on 
     private List <String> personTeams = new ArrayList<>();
+    // list of tasks
 
 
     // defult constuctor 
@@ -35,7 +36,7 @@ public class Person{
     }
 
     public void newTeam(){
-        //Team newTeam = new Team();
+        Team newTeam = new Team();
     }
 
     public void assignToTeam( String team){
