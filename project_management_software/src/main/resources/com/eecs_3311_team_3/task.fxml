@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+<fx:root
+    xmlns="http://javafx.com/javafx/19"
+    xmlns:fx="http://javafx.com/fxml/1"
+    >
+    <Text layoutX="85.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+    <TextField layoutX="15.0" layoutY="101.0" />
+</fx:root>
