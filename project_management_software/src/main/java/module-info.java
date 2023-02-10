@@ -1,4 +1,5 @@
 module com.eecs_3311_team_3 {
+    requires transitive javafx.graphics;
     requires javafx.controls;
     requires javafx.fxml;
 
