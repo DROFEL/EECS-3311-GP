@@ -1,5 +1,6 @@
-package com.eecs_3311_team_3;
+package com.eecs_3311_team_3.controllers;
 
+import com.eecs_3311_team_3.*;
 import java.io.IOException;
 import javafx.fxml.FXML;
 
