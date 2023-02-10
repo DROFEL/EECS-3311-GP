@@ -1,0 +1,182 @@
+Format:
+********
+Name
+Date
+Task
+Estimate time required
+Actual time Required
+********
+
+Team meeting
+1/30/2023
+Discussed structure of classes and the Class Diagram
+2h
+3h
+
+Richard
+1/31/2023
+Created rough draft of Class Diagram
+1 hour
+1 hour
+
+Apurva
+1/31/2023
+Created basic project class 
+1hr
+1hr 
+
+Preet 
+2/1/2023
+Create the class person
+ 2 hours  
+4 hours
+
+Apurva 
+02/01/2023
+Created rough diagram of Basic ProjectBoard class
+1hr
+1hr
+
+Team meeting
+2/01/2023
+Planned the team GIT repository and its branches
+2h
+2h
+
+Mehrsa 
+2/ 1/ 2023
+Set up github branch and began working on Task class
+3h
+5h
+
+Mehrsa
+2/2/ 2023
+Continue working on Task class adding more methods
+2h
+2h
+
+Preet
+2/3/2023
+Updated person class with more methods
+1 hour
+1 hour
+
+Apurva 
+02/03/2023
+Worked on methods for Project and Project Board classes
+1hr
+3hr
+
+Team meeting
+2/03/2023
+Allocated tasks and time frames to group members
+3h
+3h
+
+Apurva 
+02/06/2023
+Debugging project and project board classes 
+1hr
+2hr
+
+Team meeting
+2/06/2023
+Familiarized the group with the JavaFX framework
+2h
+4h
+
+Preet
+2/7/2023
+Created the Team class 
+1 hour
+3 hours
+
+Georgy
+2/7/2023
+Designed “Project Board” scene and “Project View” scene in Figma
+3 hours
+2 hours
+
+Mehrsa
+2/ 7/ 2023
+Creating main method and testing Task class
+2h
+2h
+
+Richard
+2/8/2023
+Implemented Figma scenes in FXML files for JavaFX
+3 hours
+3 hours
+
+Georgy
+02/8/2023
+Redesigned UML diagram considering MVC design
+1h
+2h
+
+Team meeting
+2/08/2023
+Coordinated final work required prior to Iteration 1 due date
+2h
+2h
+
+Mehrsa
+2/ 8/ 2023
+Updating class diagram
+1h
+1h
+
+Preet
+2/9/2023
+Updated class diagram adding Team, and Person class
+1 hour
+1 hour
+
+Georgy and Richard
+2/9/2023
+Setup JavaFX framework
+5 hours
+5 days
+
+Richard
+2/9/2023
+Updated Planning Doc with finalized Class Diagram
+1 hour
+1 hour
+
+Apurva 
+02/09/2023
+Putting together all 5 classes and testing 
+2hr
+3hr
+
+Georgy
+2/9/2023
+Git merge files
+30min
+30 min
+
+Georgy
+2/9/2023
+Data Access Object using singleton
+15min
+15 min
+
+Georgy
+2/9/2023
+Develop logic for controllers for fxml pages
+3h
+4h
+
+Georgy
+2/9/2023
+Hookup data model and view modules
+1h
+2h
+
+Team meeting
+2/09/2023
+Assembled individual tasks into a finished product, prepared documentation for Iteration 1
+6h
+6h
