@@ -1,12 +1,11 @@
 package com.eecs_3311_team_3.data_model;
 //todo; implement Team
 public class Task{
-    private String taskID;
-    private String name;
-    private String status;
-    private String comments;
-    private Team tea;
-    private Team team = new Team(); 
+    String taskID;
+    String name;
+    String status;
+    String comments;
+ 
 
     //constructor
     public Task (){
@@ -14,14 +13,14 @@ public class Task{
         this.name = "Null";
         this.status = "Null";
         this.comments = "";
-        this.team = null; 
+       
     }
-    public Task (String taskID, String name, String status, String comments, Team team){
+    public Task (String taskID, String name, String status, String comments){
         this.taskID = taskID;
         this.name = name;
         this.status = status;
         this.comments = comments;
-        this.team = team;
+       
     }
 
     //getters
@@ -37,9 +36,7 @@ public class Task{
     public String getComments(){
         return this.comments;
     }
-    public Team getTeam(){
-        return this.team;
-    }
+   
 
 
     //setters
@@ -49,9 +46,6 @@ public class Task{
     public void setName(String name){
         this.name = name;
     }
-    public void assignTeam(Team team){
-        this.team = team;
-    }
 
 
     //additional
@@ -60,7 +54,7 @@ public class Task{
     }
 
     public void addComment(String newComment){
-        if (comments != ''){
+        if (comments != ""){
             comments += ", ";
         }
         comments += newComment;

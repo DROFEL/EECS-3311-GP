@@ -37,4 +37,11 @@ public void printProjects(){
     }
 }
 
+public Person getOwner() {
+	return this.owner;
+	// TODO Auto-generated method stub
+	
+}
+
+
 }

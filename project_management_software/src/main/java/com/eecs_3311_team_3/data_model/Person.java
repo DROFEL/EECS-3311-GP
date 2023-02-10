@@ -32,11 +32,6 @@ public class Person{
         this.personTeams = personteams;
     }
 
-    // Create a new object of person 
-    public void newPerson(int perUserID, String perName, String perContactInfo, List<String> personTeam){
-        Person newPerson = new Person(perUserID, perName, perContactInfo, personTeam);
-    }
-
     public void newTeam(){
         Team newTeam = new Team();
     }
@@ -75,5 +70,3 @@ public class Person{
     }
 
 }
-
-//test person
