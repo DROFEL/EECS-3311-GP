@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="249.0" type="AnchorPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.eecs_3311_team_3.controllers.EditableTextController">
+   <children>
+      <TextField fx:id="field" disable="true" layoutY="2.0" text="dsa" />
+      <Button fx:id="button" layoutX="192.0" layoutY="2.0" mnemonicParsing="false" onAction="#switchState" text="Edit" />
+      <Text fx:id="text" layoutX="7.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+   </children>
+</fx:root>
