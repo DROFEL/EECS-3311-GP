@@ -14,10 +14,12 @@ import java.io.IOException;
 public class App extends Application {
 
     private static Scene scene;
+    private DAO data = DAO.getInstance();
 
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("primary"), 1280, 720);
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }
