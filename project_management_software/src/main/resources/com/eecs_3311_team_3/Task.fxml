@@ -26,7 +26,7 @@
                   <Font name="Segoe UI" size="14.0" />
                </font>
             </Text>
-            <Button id="openTaskButton" layoutX="9.0" layoutY="116.0" mnemonicParsing="false" style="-fx-background-color: #949494;" text="Open" textFill="WHITE">
+            <Button id="openTaskButton" layoutX="9.0" layoutY="116.0" mnemonicParsing="false" style="-fx-background-color: #949494;" text="Open" textFill="WHITE" onAction="#openTaskPage">
                <font>
                   <Font name="Segoe UI Bold" size="14.0" />
                </font>

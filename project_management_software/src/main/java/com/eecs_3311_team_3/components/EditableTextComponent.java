@@ -4,11 +4,12 @@ import java.io.IOException;
 
 import com.eecs_3311_team_3.App;
 
+import javafx.beans.NamedArg;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
 
-public class EditableText extends Pane {
-    public EditableText(){
+public class EditableTextComponent extends Pane {
+    public EditableTextComponent(@NamedArg("fontSize") int fontSize){
 
         FXMLLoader loader = new FXMLLoader(App.class.getResource("Task.fxml"));
         loader.setRoot(this);
