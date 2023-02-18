@@ -9,9 +9,10 @@ import javafx.scene.layout.VBox;
 
 public class TaskComponent extends VBox {
     
-    public TaskComponent(){
+    public TaskComponent(String id){
         FXMLLoader loader = new FXMLLoader(App.class.getResource("Task.fxml"));
         loader.setRoot(this);
+        loader = 
 
         try {
             loader.load();

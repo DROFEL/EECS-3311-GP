@@ -3,6 +3,7 @@ package com.eecs_3311_team_3.controllers;
 import java.io.IOException;
 
 import com.eecs_3311_team_3.App;
+import com.eecs_3311_team_3.data_model.Task;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -19,6 +20,8 @@ public class TaskController{
     @FXML
     private Text teamName;
 
+    private Task task;
+
     @FXML
     public void initialize() {
         taskLable.setText("Lable_1");
@@ -27,5 +30,9 @@ public class TaskController{
     @FXML
     private void openTaskPage() throws IOException{
         App.setRoot("TaskPage");
+    }
+
+    public void setTask(Task task){
+        this.task = task;
     }
 }
