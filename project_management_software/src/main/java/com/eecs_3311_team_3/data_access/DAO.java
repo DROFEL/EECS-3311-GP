@@ -1,4 +1,4 @@
-package com.eecs_3311_team_3.DAO;
+package com.eecs_3311_team_3.data_access;
 
 import java.util.ArrayList;
 
@@ -11,24 +11,4 @@ import java.util.ArrayList;
  */
 public interface DAO<T> {
 
-    /** 
-     * @param id Unique Identification number for element <T>
-     * @return T that is a object of specified type T
-     */
-    T get(String id);
-
-    /** 
-     * @return returns all objects of specified type T
-     */
-    ArrayList<T> getAll();
-
-    /** 
-     * 
-     * @return returns all objects of specified type T
-     */
-    void add(T t);
-
-    void update(String id, T t);
-
-    void delete(T t);
 }

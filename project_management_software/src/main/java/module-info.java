@@ -5,5 +5,6 @@ module com.eecs_3311_team_3 {
 
     opens com.eecs_3311_team_3.controllers to javafx.fxml;
     exports com.eecs_3311_team_3;
+    exports com.eecs_3311_team_3.data_model;
     exports com.eecs_3311_team_3.controllers;
 }
