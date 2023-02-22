@@ -17,6 +17,7 @@ public class TaskController{
     private Text textDescription;
     @FXML
     private Text status;
+
     @FXML
     private Text teamName;
 
@@ -24,7 +25,7 @@ public class TaskController{
 
     @FXML
     public void initialize() {
-        taskLable.setText("Lable_1");
+        
     }
 
     @FXML
@@ -34,5 +35,6 @@ public class TaskController{
 
     public void setTask(Task task){
         this.task = task;
+        taskLable.setText(task.getID());
     }
 }

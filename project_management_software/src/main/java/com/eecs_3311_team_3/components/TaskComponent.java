@@ -11,17 +11,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.VBox;
 
 public class TaskComponent extends VBox {
-    
-    public TaskComponent(String id){
+
+    public TaskComponent(String id) {
         FXMLLoader loader = new FXMLLoader(App.class.getResource("Task.fxml"));
         loader.setRoot(this);
-        Task task = new TaskRepository().get(id);
-        TaskController controller = loader.getController();
-        controller.setTask(task);
 
         try {
             loader.load();
-        } catch(IOException e) {
+            Task task = new TaskRepository().get(id);
+            TaskController controller = loader.getController();
+            controller.setTask(task);
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }

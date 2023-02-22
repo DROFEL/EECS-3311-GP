@@ -8,7 +8,9 @@ public class TaskRepository implements PM_Repository<Task> {
     
     @Override
     public Task get(String id){
-        return new Task();
+        Task task = new Task();
+        task.setID(id);
+        return task;
     }
 
     @Override 
