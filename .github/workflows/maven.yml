@@ -40,4 +40,4 @@ jobs:
     runs-on: [ubuntu-latest, windows-latest, macos-latest]
     steps:
     - name: Make Jar
-    - run: mvn clean package
+      run: mvn clean package
