@@ -31,13 +31,13 @@ jobs:
       run: mvn -B package --file project_management_software/pom.xml
     
     - name: Rename executable
-      run: mv project_management_software/target/project_management_software-iter1-0.1.jar .build_${{matrix}}
+      run: mv project_management_software/target/project_management_software-iter1-0.1.jar .build_${{matrix}}.jar; chmod 774 .build_${{matrix}}.jar
     
     - name: Upload Jar
       uses: actions/upload-artifact@v3
       with: 
         name: build_${{matrix}}
-        path: .
+        path: .build_${{matrix}}
       
   release:
   
