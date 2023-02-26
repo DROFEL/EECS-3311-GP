@@ -39,7 +39,7 @@ jobs:
       
     - name: Rename executable windows
       if: ${{runner.os == 'Windows'}} 
-      run: Rename-Item -Path ".\project_management_software\target\project_management_software-iter1-0.1.jar" -NewName "build_Windows.jar" | Move-Item -Path ./project_management_software/target/build_Windows.jar -Destination ./
+      run: Rename-Item -Path ".\project_management_software\target\project_management_software-iter1-0.1.jar" -NewName "build_Windows.jar"; Move-Item -Path ./project_management_software/target/build_Windows.jar -Destination ./
     
     - name: Upload Jar
       uses: actions/upload-artifact@v3
