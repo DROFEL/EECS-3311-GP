@@ -45,7 +45,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with: 
         name: build_${{runner.os}}
-        path: ./build_Windows.jar
+        path: ./build_${{runner.os}}.jar
       
   release:
   
@@ -61,12 +61,11 @@ jobs:
         
       - name: Get build artifact
         uses: actions/download-artifact@v3
-        if: startsWith(github.ref, 'refs/tags/')
         with:
           name: build_Linux
-          tag_name: test
           
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          files: build_Linux build_macOS
+          files: build_Linux.zip
+          tag_name: test
