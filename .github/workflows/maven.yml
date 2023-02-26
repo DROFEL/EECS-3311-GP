@@ -50,6 +50,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+              
+      - name: create tag
+        run: git tag test
         
       - name: Get build artifact
         uses: actions/download-artifact@v3
