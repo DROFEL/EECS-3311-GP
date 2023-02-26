@@ -10,9 +10,9 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "release" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "release" ]
 
 jobs:
   build:
@@ -31,13 +31,13 @@ jobs:
       run: mvn -B package --file project_management_software/pom.xml
     
     - name: Rename executable
-      run: mv project_management_software/target/project_management_software-iter1-0.1.jar .build_${{matrix}}.jar; chmod 774 .build_${{matrix}}.jar
+      run: mv project_management_software/target/project_management_software-iter1-0.1.jar build_$RUNNER_OS.jar; chmod 774 build_$RUNNER_OS.jar
     
     - name: Upload Jar
       uses: actions/upload-artifact@v3
       with: 
-        name: build_${{matrix}}
-        path: .build_${{matrix}}
+        name: build_$RUNNER_OS
+        path: build_$RUNNER_OS.jar
       
   release:
   
@@ -50,7 +50,7 @@ jobs:
       - name: Get build artifact
         uses: actions/download-artifact@v3
         with:
-          name: build_
+          name: build_Linux
           
       - name: Release
         uses: softprops/action-gh-release@v1
