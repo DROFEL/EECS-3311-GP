@@ -33,13 +33,13 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file project_management_software/pom.xml
     
-    - name: Rename executable
-      run: | 
-            if [ "${{runner.os}}" = "Windows"]; then
-              Rename-Item -Path ".\project_management_software\target\project_management_software-iter1-0.1.jar" -NewName "build_Windows.jar" | Move-Item -Path .\project_management_software\target\build_Windows.jar -Destination .\..\..\
-            else
-              mv project_management_software/target/project_management_software-iter1-0.1.jar build_${{runner.os}}.jar; chmod 774 ./build_${{runner.os}}.jar
-            fi
+    - name: Rename executable linux/macos
+      if: ${{runner.os != 'Windows'}}
+      run: mv project_management_software/target/project_management_software-iter1-0.1.jar build_${{runner.os}}.jar; chmod 774 ./build_${{runner.os}}.jar
+      
+    - name: Rename executable windows
+      if: ${{runner.os == 'Windows'}} 
+      run: Rename-Item -Path ".\project_management_software\target\project_management_software-iter1-0.1.jar" -NewName "build_Windows.jar" | Move-Item -Path .\project_management_software\target\build_Windows.jar -Destination .\..\..\
     
     - name: Upload Jar
       uses: actions/upload-artifact@v3
