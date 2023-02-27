@@ -68,4 +68,4 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: build_Linux.zip
-          tag_name: test
+          tag_name: tes
