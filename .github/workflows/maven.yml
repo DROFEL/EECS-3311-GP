@@ -62,6 +62,9 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           path: ./
+      
+      - name: Give permission
+        run: chmod 774 ./build_Linux/build_Linux.jar
           
       - name: Release
         uses: softprops/action-gh-release@v1
