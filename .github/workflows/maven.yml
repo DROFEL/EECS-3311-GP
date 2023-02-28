@@ -68,4 +68,5 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: build_Linux.zip
-          tag_name: tes
+          tag_name: test
+          token: ${{ secrets.REPO_TOKEN_KEY }}
