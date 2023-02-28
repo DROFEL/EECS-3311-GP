@@ -69,4 +69,4 @@ jobs:
         with:
           files: build_Linux.zip
           tag_name: test
-          token: ${{ secrets.REPO_TOKEN_KEY }}
+          token: ${{ secrets.GITHUB_TOKEN  }}
