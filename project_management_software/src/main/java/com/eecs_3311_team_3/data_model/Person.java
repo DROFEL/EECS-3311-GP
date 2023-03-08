@@ -3,6 +3,7 @@ package com.eecs_3311_team_3.data_model;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Person{
 
     private int userID;
