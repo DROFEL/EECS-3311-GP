@@ -1,7 +1,7 @@
 package com.eecs_3311_team_3.data_model;
 //todo; implement Team
 public class Task{
-    String taskID;
+    int taskID;
     String name;
     String status;
     String comments;
@@ -9,13 +9,13 @@ public class Task{
 
     //constructor
     public Task (){
-        this.taskID = "Null";
+        this.taskID = 0;
         this.name = "Null";
         this.status = "Null";
         this.comments = "";
        
     }
-    public Task (String taskID, String name, String status, String comments){
+    public Task (int taskID, String name, String status, String comments){
         this.taskID = taskID;
         this.name = name;
         this.status = status;
@@ -24,7 +24,7 @@ public class Task{
     }
 
     //getters
-    public String getID(){
+    public int getID(){
         return this.taskID;
     }
     public String getName(){
@@ -40,7 +40,7 @@ public class Task{
 
 
     //setters
-    public void setID(String taskID){
+    public void setID(int taskID){
         this.taskID = taskID;
     }
     public void setName(String name){

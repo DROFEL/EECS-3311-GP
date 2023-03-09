@@ -9,6 +9,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 import com.eecs_3311_team_3.data_access.DBController;
+import com.eecs_3311_team_3.data_access.daos.TaskDAO;
+import com.eecs_3311_team_3.data_model.Task;
 
 /**
  * JavaFX App
@@ -21,7 +23,14 @@ public class App extends Application {
         scene = new Scene(loadFXML("ProjectBrowser"), 1280, 720);
         stage.setScene(scene);
         stage.show();
-        new DBController("jdbc:mysql://0.0.0.0:3306/test", "root", "1234");
+        new DBController("jdbc:mysql://0.0.0.0:3306/PMS", "root", "1234");
+
+        TaskDAO taskDAO = new TaskDAO();
+        Task task = taskDAO.get(2);
+        if(task == null)
+            System.out.println("null :(");
+        else
+            System.out.println(task.getName());
 
     }
 

@@ -3,31 +3,21 @@ package com.eecs_3311_team_3.data_access;
 import java.sql.*;
 
 public class DBController {
-    
-    private static String address;
     private static Connection connection;
     private static Statement command;
-    private static ResultSet data;
-
-
-    private DBController controller;
+    private static DBController controller;
 
     public DBController(String address, String user, String password) {
         try{
             connection = DriverManager.getConnection(address, user, password);
             command =  connection.createStatement();
             controller = this;
-            data = command.executeQuery("SELECT * FROM tasks");
-            data.next();
-            System.out.println(data.getString("ID"));
-            data.next();
-            System.out.println(data.getString("ID"));
         } catch(SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public DBController getInstance(){
+    public static DBController getInstance(){
         if(controller == null){
             System.out.print("DB connection is not instanciated");
             return null;
@@ -36,7 +26,18 @@ public class DBController {
             return controller;
     }
 
-    public static void execute(String query){
+    public static ResultSet executeGet(String query){
+        try{
+            return command.executeQuery(query);
+        } catch(SQLException e) {
+            System.out.println("in DBController.executionGet()");
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public static void executeSet(String query){
         try{
             command.execute(query);
         } catch(SQLException e) {
