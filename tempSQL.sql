@@ -9,7 +9,7 @@ PRIMARY KEY (projectID)
 );
 
 insert into PROJECT (projectID, projectName, projectDescription) values
-(1, "Some project", "Dedeciptription");
+(2, "Some project", "Dedeciptription");
 
 select * from PROJECT;
 
@@ -25,11 +25,8 @@ PRIMARY KEY (taskID),
 FOREIGN KEY (projectID) REFERENCES PROJECT(projectID)
 );
 
-insert into TASK (taskID, taskName, taskDescription, taskStatus, projectID, isPendingsys_configtasksID) values
-(1, "Do smth", "descriotion", "not done", 1, true),
-(2, "Do smth2", "descron", "done", 1, false),
-(3, "Do smth3", "riotion", "not done", 1, true);
-
+insert into TASK (taskID, taskName, taskDescription, taskStatus, projectID, isPending) values
+(4, "Do smth5", "descriotion", "not done", 1, true);
 
 CREATE TABLE PERSON
 (personID INT NOT NULL,
@@ -47,7 +44,7 @@ PRIMARY KEY (teamID),
 FOREIGN KEY (leaderID) REFERENCES PERSON(personID)
 );
 
-# A Person''s comments on a task (1 Person, 1 Task, Many Comments)
+# A Person's comments on a task (1 Person, 1 Task, Many Comments)
 CREATE TABLE TASKCOMMENT
 (commentID INT NOT NULL,
 commentDescription VARCHAR(250),
@@ -78,5 +75,13 @@ FOREIGN KEY (taskID) REFERENCES TASK(taskID),
 FOREIGN KEY (personID) REFERENCES PERSON(personID)
 );
 
-select * from TASK where taskID = "2";
-
+select * from TASK;
+insert into TASK (taskID, taskName, taskDescription, taskStatus, projectID, isPending) values
+(4, "Do smth3", "riotion", "not done", 1, true)
+as new(id, name, description, status, pID, pending)
+on duplicate key update
+taskName = name,
+taskDescription = description,
+taskStatus = status,
+projectID = pID,
+isPending = pending;
