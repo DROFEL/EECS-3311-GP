@@ -43,5 +43,9 @@ public Person getOwner() {
 	
 }
 
+public ArrayList<Project> getProjects() {
+	return this.projects;
+}
+
 
 }
