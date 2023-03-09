@@ -69,5 +69,5 @@ public class Person{
     public void setContactInfo(String newInfo){// to change the contact info to the new contact info 
         this.contactInfo = newInfo;  
     }
-
+// test 
 }
