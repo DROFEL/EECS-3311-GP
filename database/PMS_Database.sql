@@ -1,25 +1,6 @@
 CREATE SCHEMA PMS;
 USE PMS;
 
-CREATE TABLE PROJECT
-(projectID INT NOT NULL,
-projectName VARCHAR(50),
-projectDescription VARCHAR(500),
-PRIMARY KEY (projectID)
-);
-
-# Tasks for a project (1-to-Many)
-CREATE TABLE TASK
-(taskID INT NOT NULL,
-taskName VARCHAR(50),
-taskDescription VARCHAR(250),
-taskStatus VARCHAR(20),
-projectID INT,
-isPending BOOLEAN,
-PRIMARY KEY (taskID),
-FOREIGN KEY (projectID) REFERENCES PROJECT(projectID)
-);
-
 CREATE TABLE PERSON
 (personID INT NOT NULL,
 personName VARCHAR(50),
@@ -34,6 +15,27 @@ CREATE TABLE TEAM
 leaderID INT,
 PRIMARY KEY (teamID),
 FOREIGN KEY (leaderID) REFERENCES PERSON(personID)
+);
+
+CREATE TABLE PROJECT
+(projectID INT NOT NULL,
+projectName VARCHAR(50),
+projectDescription VARCHAR(500),
+teamID INT,
+PRIMARY KEY (projectID),
+FOREIGN KEY (teamID) REFERENCES TEAM(teamID)
+);
+
+# Tasks for a project (1-to-Many)
+CREATE TABLE TASK
+(taskID INT NOT NULL,
+taskName VARCHAR(50),
+taskDescription VARCHAR(250),
+taskStatus VARCHAR(20),
+projectID INT,
+isPending BOOLEAN,
+PRIMARY KEY (taskID),
+FOREIGN KEY (projectID) REFERENCES PROJECT(projectID)
 );
 
 # A Person's comments on a task (1 Person, 1 Task, Many Comments)
