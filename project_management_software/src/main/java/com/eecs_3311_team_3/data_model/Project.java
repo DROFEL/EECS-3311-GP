@@ -62,6 +62,14 @@ public class Project{
     public void setProjectName (String name){
     this.name = name;
     }
+
+    public ArrayList<Task> getPendingTasks() {
+		return PendingTasks;
+	}
+
+	public void setPendingTasks(ArrayList<Task> pendingTasks) {
+		PendingTasks = pendingTasks;
+	}
     
     
     
