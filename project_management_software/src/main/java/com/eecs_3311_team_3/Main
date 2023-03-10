@@ -4,70 +4,70 @@ import java.util.List;
 
 import java.util.Scanner;
 
-public class Main {
-    public static void main(String[] args) {
-        // Create new array of team names
-        ArrayList<String> teamNames = new ArrayList<>();
+// public class Main {
+//     public static void main(String[] args) {
+//         // Create new array of team names
+//         ArrayList<String> teamNames = new ArrayList<>();
 
-         teamNames.add("Team 1");
-         teamNames.add("Team 2");
-        // Create a new Person object
-        Person person = new Person(1520, "John Doe", "john.doe@email.com", teamNames);
-        Person person2 = new Person(5960, "Olivia Green", "olivia.green@email.com", teamNames);
+//          teamNames.add("Team 1");
+//          teamNames.add("Team 2");
+//         // Create a new Person object
+//         Person person = new Person(1520, "John Doe", "john.doe@email.com", teamNames);
+//         Person person2 = new Person(5960, "Olivia Green", "olivia.green@email.com", teamNames);
 
-        // Assign the person to a team
-        person.assignToTeam("Team 1");
+//         // Assign the person to a team
+//         person.assignToTeam("Team 1");
 
-        // Create a new Team object
-        Team team = new Team(person.getUserID(), Arrays.asList(person.getUserID(),person2.getUserID()), 1, 1);
+//         // Create a new Team object
+//         Team team = new Team(person.getUserID(), Arrays.asList(person.getUserID(),person2.getUserID()), 1, 1);
 
-        System.out.println("Team Leader: " + team.getLeader());
-        System.out.println("Team Members: " + team.getMembers());
-        System.out.println("Project Number: " + team.getProjectNumber());
-        System.out.println("Task Number: " + team.getTaskNumber());
+//         System.out.println("Team Leader: " + team.getLeader());
+//         System.out.println("Team Members: " + team.getMembers());
+//         System.out.println("Project Number: " + team.getProjectNumber());
+//         System.out.println("Task Number: " + team.getTaskNumber());
 
-        // Assign the team to a new project
-        team.assignToProject(2);
+//         // Assign the team to a new project
+//         team.assignToProject(2);
 
-        System.out.println("Project Number: " + team.getProjectNumber());
+//         System.out.println("Project Number: " + team.getProjectNumber());
         
-        //Create new Team object
-        Team team = new Team(person.getUserID(), Arrays.asList(person.getUserID()), 1, 1);
+//         //Create new Team object
+//         Team team = new Team(person.getUserID(), Arrays.asList(person.getUserID()), 1, 1);
 
-        //Create new Task object
-        Task task = new Task("ID123", "Task Name", "Unfinished", " ", Team team);
+//         //Create new Task object
+//         Task task = new Task("ID123", "Task Name", "Unfinished", " ", Team team);
 
-        //Checking
-        System.out.println("Task ID: " + task.getID());
-        System.out.println("Task name: " + task.getName());
-        System.out.println("Task status: " + task.getStatus());
-        System.out.println("Task Comments: " + task.getComments());
-        System.out.println("Task team: " + task.getTeam().getProjectNumber());
+//         //Checking
+//         System.out.println("Task ID: " + task.getID());
+//         System.out.println("Task name: " + task.getName());
+//         System.out.println("Task status: " + task.getStatus());
+//         System.out.println("Task Comments: " + task.getComments());
+//         System.out.println("Task team: " + task.getTeam().getProjectNumber());
 
-        //Changing status and adding comment
-        task.editStatus("In progress");
-        task.addComment("Hello World");
+//         //Changing status and adding comment
+//         task.editStatus("In progress");
+//         task.addComment("Hello World");
 
-        //Checking
-        System.out.println("Task status: " + task.getStatus());
-        System.out.println("Task Comments: " + task.getComments());
+//         //Checking
+//         System.out.println("Task status: " + task.getStatus());
+//         System.out.println("Task Comments: " + task.getComments());
         
-        Project test1 = new Project();
-        Project test2 = new Project(2,"testProject", "This is a test");
-        ProjectBoard board = new ProjectBoard();
+//         Project test1 = new Project();
+//         Project test2 = new Project(2,"testProject", "This is a test");
+//         ProjectBoard board = new ProjectBoard();
 
-        board.addProject(test1);
-        board.addProject(test2);
+//         board.addProject(test1);
+//         board.addProject(test2);
 
-        System.out.println("These are the projects that are in the board right now");
+//         System.out.println("These are the projects that are in the board right now");
 
-        board.printProjects();
+//         board.printProjects();
 
-        board.deleteProject(test2);
+//         board.deleteProject(test2);
 
         
-        System.out.println("\nThese are the projects that are in the board after deletion");
+//         System.out.println("\nThese are the projects that are in the board after deletion");
         
-        board.printProjects();
-    }
-}
+//         board.printProjects();
+//     }
+// }
