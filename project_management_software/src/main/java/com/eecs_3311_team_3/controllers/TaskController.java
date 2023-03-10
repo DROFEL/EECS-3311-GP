@@ -35,6 +35,5 @@ public class TaskController{
 
     public void setTask(Task task){
         this.task = task;
-        taskLable.setText(task.getID());
     }
 }
