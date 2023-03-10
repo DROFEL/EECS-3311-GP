@@ -1,0 +1,77 @@
+# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
+
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation
+
+name: Java CI with Maven
+
+on:
+  push:
+    branches: [ "release" ]
+  pull_request:
+    branches: [ "release" ]
+
+jobs:
+  build:
+
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up JDK 11
+      uses: actions/setup-java@v3
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+        cache: maven
+    - name: Build with Maven
+      run: mvn -B package --file project_management_software/pom.xml
+    
+    - name: Rename executable linux/macos
+      if: ${{runner.os != 'Windows'}}
+      run: mv project_management_software/target/project_management_software-iter1-0.1.jar build_${{runner.os}}.jar; chmod 774 ./build_${{runner.os}}.jar
+      
+    - name: Rename executable windows
+      if: ${{runner.os == 'Windows'}} 
+      run: Rename-Item -Path ".\project_management_software\target\project_management_software-iter1-0.1.jar" -NewName "build_Windows.jar"; Move-Item -Path ./project_management_software/target/build_Windows.jar -Destination ./
+    
+    - name: Upload Jar
+      uses: actions/upload-artifact@v3
+      with: 
+        name: build_${{runner.os}}
+        path: ./build_${{runner.os}}.jar
+      
+  release:
+  
+    runs-on: ubuntu-latest
+    needs: build
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+              
+      - name: create tag
+        run: git tag test
+        
+      - uses: actions/download-artifact@v3
+        with:
+          path: ./
+      
+      - name: Give permission
+        run: chmod 774 ./build_Linux/build_Linux.jar
+          
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            ./build_Linux/build_Linux.jar
+            ./build_Windows/build_Windows.jar
+            ./build_macOS/build_macOS.jar
+          tag_name: test
+          token: ${{ secrets.GITHUB_TOKEN  }}
