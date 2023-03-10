@@ -1,7 +1,8 @@
 package com.eecs_3311_team_3.data_model;
 //todo; implement Team
 public class Task{
-    String taskID;
+    int taskID;
+    int projectID;
     String name;
     String status;
     String comments;
@@ -9,23 +10,27 @@ public class Task{
 
     //constructor
     public Task (){
-        this.taskID = "Null";
+        this.taskID = 0;
         this.name = "Null";
         this.status = "Null";
         this.comments = "";
        
     }
-    public Task (String taskID, String name, String status, String comments){
+    public Task (int taskID, String name, String status, String comments, int projectID){
         this.taskID = taskID;
         this.name = name;
         this.status = status;
         this.comments = comments;
+        this.projectID = projectID;
        
     }
 
     //getters
-    public String getID(){
+    public int getID(){
         return this.taskID;
+    }
+    public int getProjectID(){
+        return this.projectID;
     }
     public String getName(){
         return this.name;
@@ -40,9 +45,6 @@ public class Task{
 
 
     //setters
-    public void setID(String taskID){
-        this.taskID = taskID;
-    }
     public void setName(String name){
         this.name = name;
     }

@@ -8,19 +8,21 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import com.eecs_3311_team_3.data_access.DBController;
 /**
  * JavaFX App
  */
 public class App extends Application {
 
     private static Scene scene;
-    private DAO data = DAO.getInstance();
-
     @Override
     public void start(Stage stage) throws IOException {
+        new DBController("jdbc:mysql://0.0.0.0:3306/PMS", "root", "1234");
+        
         scene = new Scene(loadFXML("ProjectBrowser"), 1280, 720);
         stage.setScene(scene);
         stage.show();
+
     }
 
     public static void setRoot(String fxml) throws IOException {
