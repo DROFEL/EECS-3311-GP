@@ -8,13 +8,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-import java.util.ArrayList;
 import com.eecs_3311_team_3.data_access.DBController;
-import com.eecs_3311_team_3.data_access.ProjectRepository;
-import com.eecs_3311_team_3.data_access.TaskRepository;
-import com.eecs_3311_team_3.data_model.Project;
-import com.eecs_3311_team_3.data_model.Task;
-
 /**
  * JavaFX App
  */
