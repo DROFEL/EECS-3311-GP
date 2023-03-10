@@ -25,6 +25,11 @@ public class Task{
        
     }
 
+    public Task(int taskID, int projectID){
+        this.taskID = taskID;
+        this.projectID = projectID;
+    }
+
     //getters
     public int getID(){
         return this.taskID;
