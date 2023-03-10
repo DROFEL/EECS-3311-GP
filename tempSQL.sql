@@ -15,7 +15,7 @@ select * from PROJECT;
 
 # Tasks for a project (1-to-Many)
 CREATE TABLE TASK
-(taskID INT NOT NULL,
+(taskID INT NOT NULL auto_increment,
 taskName VARCHAR(50),
 taskDescription VARCHAR(250),
 taskStatus VARCHAR(20),

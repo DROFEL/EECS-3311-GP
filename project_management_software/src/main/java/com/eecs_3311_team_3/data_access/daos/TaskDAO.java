@@ -31,7 +31,8 @@ public class TaskDAO extends DAO<Task> {
     public ArrayList<Task> getAll(int ParentId) {
         ArrayList<Task> tasks = null;
         try {
-            ResultSet result = DBController.executeGet(String.format("select * from TASK where projectID = %d;", ParentId));
+            ResultSet result = DBController
+                    .executeGet(String.format("select * from TASK where projectID = %d;", ParentId));
             tasks = new ArrayList<>();
             while (result.next()) {
                 tasks.add(assembleTask(result));
@@ -44,23 +45,24 @@ public class TaskDAO extends DAO<Task> {
 
     @Override
     public void save(Task t) {
+        DBController.executeSet(String
+                .format("insert * into TASK (taskName, taskDescription, taskStatus, projectID, isPending) values" +
+                        "(%s, %s, %s, %d, true)", t.getName(), t.getComments(), t.getStatus(), t.getProjectID()));
+    }
+
+    @Override
+    public void update(Task t) {
         this.getController();
         DBController.executeSet(String.format(
                 "insert into TASK (taskID, taskName, taskDescription, taskStatus, projectID, isPending) values " +
-                        "(%d, \"%s\", \"%s\", \"%s\", 1, true) " +
+                        "(%d, \"%s\", \"%s\", \"%s\", %d, true) " +
                         "on duplicate key update " +
                         "taskName = values(taskName), " +
                         "taskDescription = values(taskDescription), " +
                         "taskStatus = values(taskStatus), " +
                         "projectID = values(projectID), " +
                         "isPending = values(isPending);",
-                t.getID(), t.getName(), t.getComments(), t.getStatus()));
-    }
-
-    @Override
-    public void update(Task t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
+                t.getID(), t.getName(), t.getComments(), t.getStatus(), t.getProjectID()));
     }
 
     @Override
@@ -74,7 +76,8 @@ public class TaskDAO extends DAO<Task> {
         String description = result.getString("taskDescription");
         String status = result.getString("taskStatus");
         int projectID = result.getInt("projectID");
+        int taskID = result.getInt("taskID");
         boolean bPending = result.getBoolean("isPending");
-        return new Task(projectID, name, status, description);
+        return new Task(taskID, name, status, description, projectID);
     }
 }

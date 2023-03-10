@@ -9,6 +9,7 @@ import com.eecs_3311_team_3.data_model.Project;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
 
 public class ProjectEntityController implements Initializable {
@@ -19,15 +20,17 @@ public class ProjectEntityController implements Initializable {
     
     @FXML
     private void openProject() throws IOException {
+        ProjectController.project = this.project;
         App.setRoot("Project");
     }
 
     public void setProject(Project project){
+        this.project = project;
         projectLabel.setText(project.getProjectname());
     }
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        projectLabel.setText("aboba");
+        
     }
 }

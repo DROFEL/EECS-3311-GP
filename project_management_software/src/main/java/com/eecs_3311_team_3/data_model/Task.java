@@ -2,6 +2,7 @@ package com.eecs_3311_team_3.data_model;
 //todo; implement Team
 public class Task{
     int taskID;
+    int projectID;
     String name;
     String status;
     String comments;
@@ -15,17 +16,21 @@ public class Task{
         this.comments = "";
        
     }
-    public Task (int taskID, String name, String status, String comments){
+    public Task (int taskID, String name, String status, String comments, int projectID){
         this.taskID = taskID;
         this.name = name;
         this.status = status;
         this.comments = comments;
+        this.projectID = projectID;
        
     }
 
     //getters
     public int getID(){
         return this.taskID;
+    }
+    public int getProjectID(){
+        return this.projectID;
     }
     public String getName(){
         return this.name;

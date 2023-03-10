@@ -38,7 +38,7 @@ public class ProjectRepository implements PM_Repository<Project> {
     public void add(Project instance) {
         projectDAO.save(instance);
         for (Task i : instance.getTasks()) {
-            taskDAO.save(i);
+            taskDAO.update(i);
         }
     }
 

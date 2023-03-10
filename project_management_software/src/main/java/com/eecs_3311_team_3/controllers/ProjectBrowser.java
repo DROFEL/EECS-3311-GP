@@ -34,15 +34,5 @@ public class ProjectBrowser implements Initializable{
             Pane projectEntity =  new BrowserEntityComponent(project);
             projectsList.getChildren().add(projectEntity);
         }
-
-        // Pane projectEntity;
-        // try {
-        //     projectEntity = FXMLLoader.load(App.class.getResource("BrowserEntity.fxml"));
-        //     projectsList.getChildren().add(projectEntity);
-        // } catch (IOException e) {
-        //     // TODO Auto-generated catch block
-        //     e.printStackTrace();
-        // }
-        
     }
 }
