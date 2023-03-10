@@ -28,31 +28,6 @@ public class App extends Application {
         stage.show();
         new DBController("jdbc:mysql://0.0.0.0:3306/PMS", "root", "1234");
 
-        TaskRepository taskDAO = new TaskRepository();
-        Task task = taskDAO.get(1);
-        if(task == null)
-            System.out.println("null :(");
-        else
-            System.out.println(task.getName());
-        task.setName("new name");
-        taskDAO.add(task);
-        // task = taskDAO.get(2);
-
-        if(task == null)
-            System.out.println("null :(");
-        else
-            System.out.println(task.getName());
-        task.setName("Haha");
-        ProjectRepository dao = new ProjectRepository();
-        Project project = dao.get(1);
-        ArrayList<Task> tasks = project.getTasks();
-        System.out.println(" Tasks 1 "+tasks.get(0).getName());
-        tasks.set(0, task);
-        dao.add(project);
-        project = dao.get(1);
-        tasks = project.getTasks();
-        System.out.println(" Tasks 2 "+tasks.get(0).getName());
-
     }
 
     public static void setRoot(String fxml) throws IOException {
