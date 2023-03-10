@@ -20,7 +20,7 @@ public class App extends Application {
     private static Scene scene;
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("ProjectBrowser"), 1280, 720);
+        scene = new Scene(loadFXML("Login"), 1280, 720);
         stage.setScene(scene);
         stage.show();
         new DBController("jdbc:mysql://0.0.0.0:3306/PMS", "root", "1234");
