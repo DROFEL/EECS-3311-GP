@@ -16,5 +16,7 @@ public class ProjectBrowser {
     private void createProject() throws IOException {
         Pane projectEntity =  FXMLLoader.load(App.class.getResource("BrowserEntity.fxml"));
         projectsList.getChildren().add(projectEntity);
+
+        
     }
 }

@@ -1,24 +1,26 @@
 package com;
 
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Test;
+import com.eecs_3311_team_3.data_model.Team;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.jupiter.api.Test;
 
 class TeamTest {
 
 	@Test
 	public void testNewTeamDefaultConstructor(){//Test creating a new team with the default constructor
 	    Team team = new Team();
-	    assertEquals(1, team.counter);
+	    assertEquals(1, Team.counter);
 	    assertEquals(0, team.getLeader());
 	    assertNull(team.getMembers());
 	    assertEquals(0, team.getProjectNumber());
 	    assertEquals(0, team.getTaskNumber());
-	    team.counter = 0;
+	    Team.counter = 0;
 	}
 	
 	@Test
@@ -28,12 +30,12 @@ class TeamTest {
 	    members.add(2);
 	    members.add(3);
 	    Team team = new Team(1, members, 1, 1);
-	    assertEquals(1, team.counter);
+	    assertEquals(1, Team.counter);
 	    assertEquals(1, team.getLeader());
 	    assertEquals(members, team.getMembers());
 	    assertEquals(1, team.getProjectNumber());
 	    assertEquals(1, team.getTaskNumber());
-	    team.counter = 0;
+	    Team.counter = 0;
 	}
 	
 	@Test
@@ -45,7 +47,7 @@ class TeamTest {
 	    Team team = new Team(1, members, 1, 1);
 	    team.setLeader(4);
 	    assertEquals(4, team.getLeader());
-	    team.counter = 0;
+	    Team.counter = 0;
 	}
 	
 	@Test
@@ -57,7 +59,7 @@ class TeamTest {
 	    Team team = new Team(1, members, 1, 1);
 	    team.assignToProject(2);
 	    assertEquals(2, team.getProjectNumber());
-	    team.counter = 0;
+	    Team.counter = 0;
 	}
 	
 	@Test
@@ -69,7 +71,7 @@ class TeamTest {
 	    Team team = new Team(1, members, 1, 1);
 	    team.assignToTask(2);
 	    assertEquals(2, team.getTaskNumber());
-	    team.counter = 0;
+	    Team.counter = 0;
 	}
 	
 	@Test
@@ -80,7 +82,7 @@ class TeamTest {
 	    members.add(3);
 	    Team team = new Team(1, members, 1, 1);
 	    assertEquals(1, team.getLeader());
-	    team.counter = 0;
+	    Team.counter = 0;
 	}
 	
 	@Test
@@ -91,7 +93,7 @@ class TeamTest {
 	    members.add(3);
 	    Team team = new Team(1, members, 1, 1);
 	    assertEquals(members, team.getMembers());
-	    team.counter = 0;
+	    Team.counter = 0;
 	}
 	
 	@Test
@@ -102,7 +104,7 @@ class TeamTest {
 	    members.add(3);
 	    Team team = new Team(1, members, 1, 1);
 	    assertEquals(1, team.getProjectNumber());
-	    team.counter = 0;
+	    Team.counter = 0;
 	}
 	
 	@Test
@@ -113,7 +115,7 @@ class TeamTest {
 	    members.add(3);
 	    Team team = new Team(1, members, 1,1);
 	    assertEquals(1, team.getTaskNumber());
-	    team.counter = 0;
+	    Team.counter = 0;
 	}
 
 

@@ -9,7 +9,7 @@ public class Person{
     private String name; 
     private String contactInfo;
     // a list for what team a person is on 
-    private List <String> personTeams = new ArrayList<>();
+    public List <String> personTeams = new ArrayList<>();
     // list of tasks
 
 
