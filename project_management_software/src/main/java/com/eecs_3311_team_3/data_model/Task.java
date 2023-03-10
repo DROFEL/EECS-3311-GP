@@ -40,9 +40,6 @@ public class Task{
 
 
     //setters
-    public void setID(int taskID){
-        this.taskID = taskID;
-    }
     public void setName(String name){
         this.name = name;
     }

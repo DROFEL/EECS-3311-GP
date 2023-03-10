@@ -35,7 +35,7 @@ public class TaskRepository implements PM_Repository<Task> {
     }
 
     @Override
-    public void delete(int id){
+    public void delete(Task task){
 
     }
 

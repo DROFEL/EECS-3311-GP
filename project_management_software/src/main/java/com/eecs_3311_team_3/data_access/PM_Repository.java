@@ -33,5 +33,5 @@ public interface PM_Repository<T> {
      * Removes object with id from DB
      * @param id Unique Identification number for element <T>
      */
-    void delete(int id);
+    void delete(T instance);
 }

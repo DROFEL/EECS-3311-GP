@@ -8,9 +8,11 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import java.util.ArrayList;
 import com.eecs_3311_team_3.data_access.DBController;
+import com.eecs_3311_team_3.data_access.ProjectRepository;
 import com.eecs_3311_team_3.data_access.TaskRepository;
-import com.eecs_3311_team_3.data_access.daos.TaskDAO;
+import com.eecs_3311_team_3.data_model.Project;
 import com.eecs_3311_team_3.data_model.Task;
 
 /**
@@ -34,12 +36,22 @@ public class App extends Application {
             System.out.println(task.getName());
         task.setName("new name");
         taskDAO.add(task);
-        task = taskDAO.get(2);
+        // task = taskDAO.get(2);
 
         if(task == null)
             System.out.println("null :(");
         else
             System.out.println(task.getName());
+        task.setName("Haha");
+        ProjectRepository dao = new ProjectRepository();
+        Project project = dao.get(1);
+        ArrayList<Task> tasks = project.getTasks();
+        System.out.println(" Tasks 1 "+tasks.get(0).getName());
+        tasks.set(0, task);
+        dao.add(project);
+        project = dao.get(1);
+        tasks = project.getTasks();
+        System.out.println(" Tasks 2 "+tasks.get(0).getName());
 
     }
 
