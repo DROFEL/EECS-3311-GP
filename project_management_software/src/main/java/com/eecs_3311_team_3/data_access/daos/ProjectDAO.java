@@ -42,7 +42,7 @@ public class ProjectDAO extends DAO<Project> {
         ArrayList<Project> projects = null;
         try {
             ResultSet result = DBController
-                    .executeGet(String.format("select * from PROJECT where projectID = %d;", ParentId));
+                    .executeGet(String.format("select * from PROJECT;" /*where projectID = %d;*/, ParentId));
             projects = new ArrayList<>();
             while (result.next()) {
                 projects.add(assemblProject(result));

@@ -75,7 +75,10 @@ FOREIGN KEY (taskID) REFERENCES TASK(taskID),
 FOREIGN KEY (personID) REFERENCES PERSON(personID)
 );
 
-select * from TASK;
+select * from PROJECT;
+
+update PROJECT set projectName="project2" where projectID = 2;
+
 insert into TASK (taskID, taskName, taskDescription, taskStatus, projectID, isPending) values
 (4, "Dmth", "riion", "not done", 1, true)
 on duplicate key update
@@ -83,4 +86,4 @@ taskName = values(taskName),
 taskDescription = values(taskDescription),
 taskStatus = values(taskStatus),
 projectID = values(projectID),
-isPending = values(projectID);
+isPending = values(isPending);
