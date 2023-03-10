@@ -77,11 +77,10 @@ FOREIGN KEY (personID) REFERENCES PERSON(personID)
 
 select * from TASK;
 insert into TASK (taskID, taskName, taskDescription, taskStatus, projectID, isPending) values
-(4, "Do smth3", "riotion", "not done", 1, true)
-as new(id, name, description, status, pID, pending)
+(4, "Dmth", "riion", "not done", 1, true)
 on duplicate key update
-taskName = name,
-taskDescription = description,
-taskStatus = status,
-projectID = pID,
-isPending = pending;
+taskName = values(taskName),
+taskDescription = values(taskDescription),
+taskStatus = values(taskStatus),
+projectID = values(projectID),
+isPending = values(projectID);

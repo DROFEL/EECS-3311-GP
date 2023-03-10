@@ -40,15 +40,14 @@ public class TaskDAO extends DAO<Task> {
     @Override
     public void save(Task t) {
         this.getController();
-        DBController.executeSet(String.format("insert into TASK (taskID, taskName, taskDescription, taskStatus, projectID, isPending) values" +
-        "(%d, \"%s\", \"%s\", \"%s\", 1, true)" +
-        "as new(id, name, description, status, pID, pending)" +
-        "on duplicate key update" +
-        "taskName = name," +
-        "taskDescription = description," +
-        "taskStatus = status," +
-        "projectID = pID, "+
-        "isPending = pending;", t.getID(), t.getName(), t.getComments(), t.getStatus()));
+        DBController.executeSet(String.format("insert into TASK (taskID, taskName, taskDescription, taskStatus, projectID, isPending) values " +
+        "(%d, \"%s\", \"%s\", \"%s\", 1, true) " +
+        "on duplicate key update " +
+        "taskName = values(taskName), " +
+        "taskDescription = values(taskDescription), " +
+        "taskStatus = values(taskStatus), " +
+        "projectID = values(projectID), "+
+        "isPending = values(isPending);", t.getID(), t.getName(), t.getComments(), t.getStatus()));
     }
 
     @Override

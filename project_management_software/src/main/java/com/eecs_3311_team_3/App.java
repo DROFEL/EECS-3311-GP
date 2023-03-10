@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 import com.eecs_3311_team_3.data_access.DBController;
+import com.eecs_3311_team_3.data_access.TaskRepository;
 import com.eecs_3311_team_3.data_access.daos.TaskDAO;
 import com.eecs_3311_team_3.data_model.Task;
 
@@ -25,8 +26,16 @@ public class App extends Application {
         stage.show();
         new DBController("jdbc:mysql://0.0.0.0:3306/PMS", "root", "1234");
 
-        TaskDAO taskDAO = new TaskDAO();
-        Task task = taskDAO.get(2);
+        TaskRepository taskDAO = new TaskRepository();
+        Task task = taskDAO.get(1);
+        if(task == null)
+            System.out.println("null :(");
+        else
+            System.out.println(task.getName());
+        task.setName("new name");
+        taskDAO.add(task);
+        task = taskDAO.get(2);
+
         if(task == null)
             System.out.println("null :(");
         else

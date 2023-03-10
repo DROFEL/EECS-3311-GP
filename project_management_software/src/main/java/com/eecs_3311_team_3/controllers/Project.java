@@ -16,7 +16,7 @@ public class Project {
 
     @FXML
     private void addTask() {
-        grid.add(new TaskComponent(Integer.toString(taskNum)), (taskNum % 4), (taskNum/4));
+        grid.add(new TaskComponent(taskNum), (taskNum % 4), (taskNum/4));
         taskNum++;
     }
 }

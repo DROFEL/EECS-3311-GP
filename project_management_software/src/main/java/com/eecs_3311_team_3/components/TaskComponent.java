@@ -12,7 +12,7 @@ import javafx.scene.layout.VBox;
 
 public class TaskComponent extends VBox {
 
-    public TaskComponent(String id) {
+    public TaskComponent(int id) {
         FXMLLoader loader = new FXMLLoader(App.class.getResource("Task.fxml"));
         loader.setRoot(this);
 

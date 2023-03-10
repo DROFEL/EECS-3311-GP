@@ -8,7 +8,7 @@ public interface PM_Repository<T> {
      * @param id Unique Identification number for element <T>
      * @return T that is a object of specified type T
      */
-    T get(String id);
+    T get(int id);
 
     /** 
      * @return returns all objects of specified type T from DB
@@ -20,18 +20,18 @@ public interface PM_Repository<T> {
      * @param id Unique Identification number for element <T>
      * @param instance Instance of object of type T
      */
-    void add(String id, T instance);
+    void add(T instance);
 
     /** 
      * Updates/replaces elemnt by id with provided instance of object with type T
      * @param id Unique Identification number for element <T>
      * @param instance Instance of object of type T
      */
-    void update(String id, T instance);
+    void update(T instance);
 
     /** 
      * Removes object with id from DB
      * @param id Unique Identification number for element <T>
      */
-    void delete(String id);
+    void delete(int id);
 }
