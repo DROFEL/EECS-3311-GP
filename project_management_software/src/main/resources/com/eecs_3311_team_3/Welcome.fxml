@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane id="Welcome" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.eecs_3311_team_3.controllers.ProjectBrowser">
+   <children>
+      <Label layoutX="543.0" layoutY="62.0" style="position: absolute; width: 211px; height: 30px; left: 81px; top: 44px;" text="Welcome">
+         <font>
+            <Font name="Segoe UI" size="36.0" />
+         </font>
+      </Label>
+      <Button id="myProjectsButton" layoutX="559.0" layoutY="181.0" mnemonicParsing="false" text="My Projects">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Button id="myTasksButton" layoutX="569.0" layoutY="276.0" mnemonicParsing="false" text="My Tasks">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>
