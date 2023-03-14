@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import com.eecs_3311_team_3.data_model.Task;
 
-public class CommentDAO extends DAO<Task>{
+public class CommentDAO extends DAO<Task, Integer>{
 
     @Override
     public Task get(int id) {
@@ -19,7 +19,7 @@ public class CommentDAO extends DAO<Task>{
     }
 
     @Override
-    public void save(Task t) {
+    public Integer save(Task t) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'save'");
     }

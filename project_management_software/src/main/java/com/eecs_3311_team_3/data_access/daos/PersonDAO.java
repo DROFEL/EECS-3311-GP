@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import com.eecs_3311_team_3.data_model.Person;
 
-public class PersonDAO extends DAO<Person> {
+public class PersonDAO extends DAO<Person, Integer> {
 
     @Override
     public Person get(int id) {
@@ -19,7 +19,7 @@ public class PersonDAO extends DAO<Person> {
     }
 
     @Override
-    public void save(Person t) {
+    public Integer save(Person t) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'save'");
     }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import com.eecs_3311_team_3.data_model.Team;
 
-public class TeamDAO extends DAO<Team>{
+public class TeamDAO extends DAO<Team, Integer>{
 
     @Override
     public Team get(int id) {
@@ -19,7 +19,7 @@ public class TeamDAO extends DAO<Team>{
     }
 
     @Override
-    public void save(Team t) {
+    public Integer save(Team t) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'save'");
     }

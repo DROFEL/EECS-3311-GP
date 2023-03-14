@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import com.eecs_3311_team_3.data_access.DBController;
 import com.eecs_3311_team_3.data_model.Task;
 
-public class TaskDAO extends DAO<Task> {
+public class TaskDAO extends DAO<Task, Integer> {
 
     public TaskDAO() {
         super();
@@ -44,25 +44,36 @@ public class TaskDAO extends DAO<Task> {
     }
 
     @Override
-    public void save(Task t) {
-        DBController.executeSet(String
+    public Integer save(Task t) {
+        
+        int generatedID = 0;
+        try {
+            DBController.executeSet(String
                 .format("insert * into TASK (taskName, taskDescription, taskStatus, projectID, isPending) values" +
                         "(%s, %s, %s, %d, true)", t.getName(), t.getComments(), t.getStatus(), t.getProjectID()));
+
+
+            ResultSet response = DBController.executeGet("SELECT * FROM TASK ORDER BY taskID DESC LIMIT 1;");
+            if(response.next()){
+                generatedID = response.getInt("taskID");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return generatedID;
     }
 
     @Override
     public void update(Task t) {
         this.getController();
         DBController.executeSet(String.format(
-                "insert into TASK (taskID, taskName, taskDescription, taskStatus, projectID, isPending) values " +
-                        "(%d, \"%s\", \"%s\", \"%s\", %d, true) " +
-                        "on duplicate key update " +
-                        "taskName = values(taskName), " +
-                        "taskDescription = values(taskDescription), " +
-                        "taskStatus = values(taskStatus), " +
-                        "projectID = values(projectID), " +
-                        "isPending = values(isPending);",
-                t.getID(), t.getName(), t.getComments(), t.getStatus(), t.getProjectID()));
+                        "update TASK " +
+                        "set taskName = \"%s\"," +
+                        "taskDescription = \"%s\"," +
+                        "taskStatus = \"%s\"," +
+                        "projectID = %d," +
+                        "isPending = true where taskID = %d;",
+                t.getName(), t.getComments(), t.getStatus(), t.getProjectID(), t.getID()));
     }
 
     @Override

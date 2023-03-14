@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import com.eecs_3311_team_3.data_access.DBController;
 import com.eecs_3311_team_3.data_model.Project;
 
-public class ProjectDAO extends DAO<Project> {
+public class ProjectDAO extends DAO<Project, Integer> {
 
     public ProjectDAO() {
         super();
@@ -42,7 +42,7 @@ public class ProjectDAO extends DAO<Project> {
         ArrayList<Project> projects = null;
         try {
             ResultSet result = DBController
-                    .executeGet(String.format("select * from PROJECT;" /*where projectID = %d;*/, ParentId));
+                    .executeGet(String.format("select * from PROJECT;" /*where username = %s;*/, ParentId));
             projects = new ArrayList<>();
             while (result.next()) {
                 projects.add(assemblProject(result));
@@ -58,12 +58,22 @@ public class ProjectDAO extends DAO<Project> {
      * @param p
      */
     @Override
-    public void save(Project p) {
-        DBController.executeSet(String.format("insert into PROJECT (projectID, projectName, projectDescription) values " +
-        "(%d, \"%s\", \"%s\") " +
-        "on duplicate key update " +
-        "projectName = values(projectName), " +
-        "projectDescription = values(projectDescription);", p.getProjectId(), p.getProjectname(), p.getProjectDescription()));
+    public Integer save(Project p) {
+        int generatedID = 0;
+        try {
+            DBController.executeSet(String
+                .format("insert into PROJECT (projectName, projectDescription) values" +
+                "(\"%s\", \"%s\");" , p.getProjectname(), p.getProjectDescription()));
+
+
+            ResultSet response = DBController.executeGet("SELECT * FROM PROJECT ORDER BY projectID DESC LIMIT 1;");
+            if(response.next()){
+                generatedID = response.getInt("projectID");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return generatedID;
     }
 
     
@@ -72,8 +82,12 @@ public class ProjectDAO extends DAO<Project> {
      */
     @Override
     public void update(Project p) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
+        DBController.executeSet(String.format(
+        "update PROJECT " +
+        "set  " +
+        "projectName = \"%s\", " +
+        "projectDescription = \"%s\" " +
+        "where projectID = \"%d\"", p.getProjectname(), p.getProjectDescription(), p.getProjectId()));
     }
 
     

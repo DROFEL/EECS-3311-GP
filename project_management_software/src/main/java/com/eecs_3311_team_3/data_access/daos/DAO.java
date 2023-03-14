@@ -12,7 +12,7 @@ import com.eecs_3311_team_3.data_access.DBController;
  * @author George
  * @since Feb 17 2023
  */
-public abstract class DAO<T> {
+public abstract class DAO<T, U> {
 
     DBController controller;
 
@@ -28,7 +28,7 @@ public abstract class DAO<T> {
 
     public abstract ArrayList<T> getAll(int ParentId);
 
-    public abstract void save(T t);
+    public abstract U save(T t);
 
     public abstract void update(T t);
 
