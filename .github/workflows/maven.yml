@@ -82,13 +82,8 @@ jobs:
         run: chmod 774 ./build_Linux/build_Linux.jar
         
       - name: Get release info
-        env:
-          RELEASE_VERSION: ""
-          RELEASE_NAME: ""
-          RELEASE_DESCRIPTION: ""
         run: |
-          source release.env
-          echo "RELEASE_VERSION=$(echo $RELEASE_VERSION | cut -c 1-6)" >> $RELEASE_VERSION
+          echo $(cat release.env) >> $GITHUB_ENV
       
       - name: Test env
         run: echo ${{RELEASE_VERSION}}
@@ -103,5 +98,5 @@ jobs:
             ./build_Linux/build_Linux.jar
             ./build_Windows/build_Windows.jar
             ./build_macOS/build_macOS.jar
-          tag_name: ${{ vars.RELEASE_VERSION }}
+          tag_name: ${{RELEASE_VERSION}}
           token: ${{ secrets.GITHUB_TOKEN  }}
