@@ -87,10 +87,10 @@ jobs:
           echo "RELEASE_VERSION=$(echo $RELEASE_VERSION | cut -c 1-6)" >> $env:RELEASE_VERSION
       
       - name: Test env
-        run: echo ${{vars.RELEASE_VERSION}}
+        run: echo $RELEASE_VERSION
         
       - name: create tag
-        run: git tag ${{vars.RELEASE_VERSION}}
+        run: git tag $RELEASE_VERSION
           
       - name: Release
         uses: softprops/action-gh-release@v1
