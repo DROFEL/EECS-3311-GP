@@ -1,4 +1,4 @@
-package com.eecs_3311_team_3.data_access.daos;
+package com.eecs_3311_team_3.data_access.DAO;
 
 import java.util.ArrayList;
 import java.util.Optional;
@@ -12,7 +12,7 @@ import com.eecs_3311_team_3.data_access.DBController;
  * @author George
  * @since Feb 17 2023
  */
-public abstract class DAO<T, U> {
+public abstract class DAO<T, U, P> {
 
     DBController controller;
 
@@ -24,11 +24,11 @@ public abstract class DAO<T, U> {
         return controller;
     }
 
-    public abstract T get(int id);
+    public abstract T get(U id);
 
-    public abstract ArrayList<T> getAll(int ParentId);
+    public abstract ArrayList<T> getAll(P ParentId);
 
-    public abstract U save(T t);
+    public abstract U create(P ParentId);
 
     public abstract void update(T t);
 

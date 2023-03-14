@@ -1,4 +1,4 @@
-package com.eecs_3311_team_3.data_access.daos;
+package com.eecs_3311_team_3.data_access.DAO;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -7,14 +7,14 @@ import java.util.ArrayList;
 import com.eecs_3311_team_3.data_access.DBController;
 import com.eecs_3311_team_3.data_model.Task;
 
-public class TaskDAO extends DAO<Task, Integer> {
+public class TaskDAO extends DAO<Task, Integer, Integer> {
 
     public TaskDAO() {
         super();
     }
 
     @Override
-    public Task get(int id) {
+    public Task get(Integer id) {
         try {
             ResultSet result = DBController.executeGet(String.format("select * from TASK where taskID = %d;", id));
             if (result.next()) {
@@ -28,7 +28,7 @@ public class TaskDAO extends DAO<Task, Integer> {
     }
 
     @Override
-    public ArrayList<Task> getAll(int ParentId) {
+    public ArrayList<Task> getAll(Integer ParentId) {
         ArrayList<Task> tasks = null;
         try {
             ResultSet result = DBController
@@ -44,13 +44,11 @@ public class TaskDAO extends DAO<Task, Integer> {
     }
 
     @Override
-    public Integer save(Task t) {
+    public Integer create(Integer ParentId) {
         
         int generatedID = 0;
         try {
-            DBController.executeSet(String
-                .format("insert * into TASK (taskName, taskDescription, taskStatus, projectID, isPending) values" +
-                        "(%s, %s, %s, %d, true)", t.getName(), t.getComments(), t.getStatus(), t.getProjectID()));
+            DBController.executeSet(String.format("insert into TASK (projectID) values (%d);", ParentId));
 
 
             ResultSet response = DBController.executeGet("SELECT * FROM TASK ORDER BY taskID DESC LIMIT 1;");

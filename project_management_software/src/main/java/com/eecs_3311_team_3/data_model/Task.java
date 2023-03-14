@@ -9,6 +9,11 @@ public class Task{
  
 
     //constructor
+    public Task(int taskID, int projectID){
+        this.taskID = taskID;
+        this.projectID = projectID;
+    }
+
     public Task (){
         this.taskID = 0;
         this.name = "Null";

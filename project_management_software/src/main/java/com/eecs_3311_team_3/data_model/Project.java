@@ -22,6 +22,10 @@ public class Project{
     }
     
     // Constructor 
+    public Project(int projectID){
+        this.projectID = projectID;
+    }
+
     public Project (int projectID, String name, String description){
         this.projectID= projectID;
         this.name = name;

@@ -1,14 +1,19 @@
 INSERT INTO UserAccounts(firstname, lastname, username, _password) VALUES ('dev/QA', 'team', 'DevQAlogin', 'SQLigma');
 INSERT INTO UserAccounts(firstname, lastname, username, _password) VALUES ('client/user', 'team', 'ClientUserlogin', 'SQLigma');
 
-insert into PROJECT (projectID, projectName, projectDescription) values
-(1, "Some project", "Dedeciptription");
+insert into PROJECT (projectName, projectDescription) values
+("Some project", "Dedeciptription");
 
 select * from PROJECT;
 
 insert into TASK (taskName, taskDescription, taskStatus, projectID, isPending) values
 ("Do smth5", "descriotion", "not done", 1, true);
 
+insert into TASK (projectID) values
+(1);
+
+
+insert into TASK (taskID) values (null);
 SELECT * FROM TASK ORDER BY taskID DESC LIMIT 1;
 
 

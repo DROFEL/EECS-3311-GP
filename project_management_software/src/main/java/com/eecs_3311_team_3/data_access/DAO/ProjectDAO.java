@@ -1,4 +1,4 @@
-package com.eecs_3311_team_3.data_access.daos;
+package com.eecs_3311_team_3.data_access.DAO;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import com.eecs_3311_team_3.data_access.DBController;
 import com.eecs_3311_team_3.data_model.Project;
 
-public class ProjectDAO extends DAO<Project, Integer> {
+public class ProjectDAO extends DAO<Project, Integer, String> {
 
     public ProjectDAO() {
         super();
@@ -19,7 +19,7 @@ public class ProjectDAO extends DAO<Project, Integer> {
      * @return Project
      */
     @Override
-    public Project get(int id) {
+    public Project get(Integer id) {
         try {
             ResultSet result = DBController.executeGet(String.format("select * from PROJECT where projectID = %d;", id));
             if (result.next()) {
@@ -38,7 +38,7 @@ public class ProjectDAO extends DAO<Project, Integer> {
      * @return ArrayList<Project>
      */
     @Override
-    public ArrayList<Project> getAll(int ParentId) {
+    public ArrayList<Project> getAll(String ParentId) {
         ArrayList<Project> projects = null;
         try {
             ResultSet result = DBController
@@ -58,13 +58,10 @@ public class ProjectDAO extends DAO<Project, Integer> {
      * @param p
      */
     @Override
-    public Integer save(Project p) {
+    public Integer create(String ParentId) {
         int generatedID = 0;
         try {
-            DBController.executeSet(String
-                .format("insert into PROJECT (projectName, projectDescription) values" +
-                "(\"%s\", \"%s\");" , p.getProjectname(), p.getProjectDescription()));
-
+            DBController.executeSet("insert into TASK (taskID) values (null);");
 
             ResultSet response = DBController.executeGet("SELECT * FROM PROJECT ORDER BY projectID DESC LIMIT 1;");
             if(response.next()){
