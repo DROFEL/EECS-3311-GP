@@ -86,10 +86,7 @@ jobs:
         
       - name: Get release info
         run: |
-          export $(cat release.env | xargs)
-          echo "RELEASE_VERSION=$(echo $RELEASE_VERSION | cut -c 1-6)" >> $RELEASE_VERSION
-          echo "RELEASE_NAME=$(echo $RELEASE_NAME | cut -c 1-6)" >> $RELEASE_NAME
-          echo "RELEASE_DESCRIPTION=$(echo $RELEASE_DESCRIPTION | cut -c 1-6)" >> $RELEASE_DESCRIPTION
+          source release.env
           
       - name: Release
         uses: softprops/action-gh-release@v1
@@ -98,5 +95,5 @@ jobs:
             ./build_Linux/build_Linux.jar
             ./build_Windows/build_Windows.jar
             ./build_macOS/build_macOS.jar
-          tag_name: test
+          tag_name: ${{ RELEASE_VERSION }}
           token: ${{ secrets.GITHUB_TOKEN  }}
