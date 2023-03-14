@@ -87,7 +87,7 @@ jobs:
       - name: Get release info
         run: |
           source release.env
-          echo "RELEASE_VERSION=$(echo $RELEASE_VERSION | cut -c 1-6)" >> $RELEASE_VERSION
+          echo "RELEASE_VERSION=$(echo $RELEASE_VERSION | cut -c 1-6)" >> $env:RELEASE_VERSION
           
       - name: Release
         uses: softprops/action-gh-release@v1
