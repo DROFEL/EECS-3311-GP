@@ -96,5 +96,5 @@ jobs:
             ./build_Linux/build_Linux.jar
             ./build_Windows/build_Windows.jar
             ./build_macOS/build_macOS.jar
-          tag_name: ${{ RELEASE_VERSION }}
+          tag_name: ${{ env.RELEASE_VERSION }}
           token: ${{ secrets.GITHUB_TOKEN  }}
