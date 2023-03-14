@@ -86,10 +86,10 @@ jobs:
           echo $(cat release.env) >> $GITHUB_ENV
       
       - name: Test env
-        run: echo ${{RELEASE_VERSION}}
+        run: echo ${{env.RELEASE_VERSION}}
         
       - name: create tag
-        run: git tag ${{RELEASE_VERSION}}
+        run: git tag ${{env.RELEASE_VERSION}}
           
       - name: Release
         uses: softprops/action-gh-release@v1
@@ -98,5 +98,5 @@ jobs:
             ./build_Linux/build_Linux.jar
             ./build_Windows/build_Windows.jar
             ./build_macOS/build_macOS.jar
-          tag_name: ${{RELEASE_VERSION}}
+          tag_name: ${{env.RELEASE_VERSION}}
           token: ${{ secrets.GITHUB_TOKEN  }}
