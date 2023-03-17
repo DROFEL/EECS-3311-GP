@@ -9,7 +9,7 @@ PRIMARY KEY (projectID)
 );
 
 insert into PROJECT (projectID, projectName, projectDescription) values
-(2, "Some project", "Dedeciptription");
+(1, "Some project", "Dedeciptription");
 
 select * from PROJECT;
 
