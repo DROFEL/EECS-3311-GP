@@ -26,8 +26,7 @@ public class TaskRepository implements PM_Repository<Task, Integer, Integer> {
     
     @Override
     public Task add(Integer ParentId){
-        int id = dao.create(ParentId);
-        return new Task(id, ParentId);
+        return dao.create(ParentId);
     }
 
     @Override

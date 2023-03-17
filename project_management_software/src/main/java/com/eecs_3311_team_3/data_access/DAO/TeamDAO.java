@@ -19,7 +19,7 @@ public class TeamDAO extends DAO<Team, Integer, Integer>{
     }
 
     @Override
-    public Integer create(Integer ParentId) {
+    public Team create(Integer ParentId) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'save'");
     }

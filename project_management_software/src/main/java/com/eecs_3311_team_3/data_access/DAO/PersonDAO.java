@@ -19,7 +19,7 @@ public class PersonDAO extends DAO<Person, Integer, Integer> {
     }
 
     @Override
-    public Integer create(Integer ParentId) {
+    public Person create(Integer ParentId) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'save'");
     }

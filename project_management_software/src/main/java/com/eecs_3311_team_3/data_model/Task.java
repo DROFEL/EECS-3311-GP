@@ -1,70 +1,83 @@
 package com.eecs_3311_team_3.data_model;
 //todo; implement Team
-public class Task{
-    int taskID;
-    int projectID;
-    String name;
-    String status;
-    String comments;
- 
 
-    //constructor
-    public Task(int taskID, int projectID){
-        this.taskID = taskID;
+import javax.persistence.*;
+
+@Entity
+@Table(name="TASK")
+public class Task implements ParentDependant<Integer, Integer>{
+    @Id
+    @Column(name="taskID")
+    public int taskID;
+//    @ManyToOne
+//    @JoinColumn(name="projectID")
+    @Column(name="projectID")
+    public int projectID;
+    @Column(name="taskName")
+    public String name;
+    @Column(name="taskDescription")
+    public String description;
+    @Column(name="taskStatus")
+    public String status;
+    @Column(name="isPending")
+    public Boolean bPending;
+
+
+    public Task(){
+
+    }
+    public Task(int projectID){
         this.projectID = projectID;
     }
 
-    public Task (){
-        this.taskID = 0;
-        this.name = "Null";
-        this.status = "Null";
-        this.comments = "";
-       
+    public int getTaskID() {
+        return taskID;
     }
-    public Task (int taskID, String name, String status, String comments, int projectID){
-        this.taskID = taskID;
+
+    public int getProjectID() {
+        return projectID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public boolean isbPending() {
+        return bPending;
+    }
+
+    public void setName(String name) {
         this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setStatus(String status) {
         this.status = status;
-        this.comments = comments;
+    }
+
+    public void setbPending(boolean bPending) {
+        this.bPending = bPending;
+    }
+
+
+    @Override
+    public void setParentID(Integer projectID) {
         this.projectID = projectID;
-       
     }
 
-    //getters
-    public int getID(){
-        return this.taskID;
+    @Override
+    public void setID(Integer id) {
+        this.taskID = id;
     }
-    public int getProjectID(){
-        return this.projectID;
-    }
-    public String getName(){
-        return this.name;
-    }
-    public String getStatus(){
-        return this.status;
-    }
-    public String getComments(){
-        return this.comments;
-    }
-   
-
-
-    //setters
-    public void setName(String name){
-        this.name = name;
-    }
-
-
-    //additional
-    public void editStatus(String status){
-        this.status = status;
-    }
-
-    public void addComment(String newComment){
-        if (comments != ""){
-            comments += ", ";
-        }
-        comments += newComment;
-    }
-
 }

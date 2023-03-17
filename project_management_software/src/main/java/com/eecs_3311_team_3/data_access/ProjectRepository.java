@@ -36,8 +36,7 @@ public class ProjectRepository implements PM_Repository<Project, Integer, String
 
     @Override
     public Project add(String ParentId) {
-        int id = projectDAO.create(ParentId);
-        return new Project(id);
+        return projectDAO.create(ParentId);
     }
 
     @Override

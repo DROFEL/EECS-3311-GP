@@ -1,7 +1,10 @@
 package com.eecs_3311_team_3.data_model;
 
+import org.hibernate.annotations.Entity;
+
 import java.util.ArrayList;
 
+@Entity
 public class Project{
 
     private int projectID;

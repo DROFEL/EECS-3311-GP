@@ -30,8 +30,10 @@ CREATE TABLE PROJECT
 projectName VARCHAR(50),
 projectDescription VARCHAR(500),
 teamID INT UNSIGNED,
+parentProjectID INT UNSIGNED,
 PRIMARY KEY (projectID),
 FOREIGN KEY (username) REFERENCES USERACCOUNTS(username)
+FOREIGN KEY (parentProjectID) REFERENCES PROJECT(projectID)
 );
 
 # Tasks for a project (1-to-Many)

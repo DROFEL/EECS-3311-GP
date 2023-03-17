@@ -58,7 +58,7 @@ public class ProjectDAO extends DAO<Project, Integer, String> {
      * @param p
      */
     @Override
-    public Integer create(String ParentId) {
+    public Project create(String ParentId) {
         int generatedID = 0;
         try {
             DBController.executeSet("insert into TASK (taskID) values (null);");
@@ -70,7 +70,7 @@ public class ProjectDAO extends DAO<Project, Integer, String> {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return generatedID;
+        return new Project();
     }
 
     
@@ -93,7 +93,6 @@ public class ProjectDAO extends DAO<Project, Integer, String> {
      */
     @Override
     public void delete(Project p) {
-        this.getController();
         DBController.executeGet(String.format("delete from PROJECT where projectID = %d;", p.getProjectId()));
     }
 
