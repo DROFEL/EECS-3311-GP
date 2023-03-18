@@ -9,6 +9,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 import com.eecs_3311_team_3.data_access.DBController;
+import com.eecs_3311_team_3.data_access.daos.TaskDAO;
+import com.eecs_3311_team_3.data_model.Task;
+
 /**
  * JavaFX App
  */
@@ -17,9 +20,7 @@ public class App extends Application {
     private static Scene scene;
     @Override
     public void start(Stage stage) throws IOException {
-        new DBController("jdbc:mysql://0.0.0.0:3306/PMS", "root", "1234");
-        
-        scene = new Scene(loadFXML("ProjectBrowser"), 1280, 720);
+        scene = new Scene(loadFXML("Login"), 1280, 720);
         stage.setScene(scene);
         stage.show();
 
