@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.eecs_3311_team_3.components.TaskComponent;
+import com.eecs_3311_team_3.data_access.ProjectRepository;
 import com.eecs_3311_team_3.data_access.TaskRepository;
 import com.eecs_3311_team_3.data_model.Project;
 import com.eecs_3311_team_3.data_model.Task;
@@ -20,12 +21,11 @@ public class ProjectController implements Initializable {
     private int taskNum = 0;
 
     public static Project project;
-    
-    private TaskRepository repo;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        repo = new TaskRepository();
+        ProjectRepository repo = new ProjectRepository();
+        project = repo.get(project.getProjectId());
         for (Task task : project.getTasks()){
             grid.add(new TaskComponent(task), (taskNum % 4), (taskNum/4));
             taskNum++;
@@ -34,7 +34,12 @@ public class ProjectController implements Initializable {
 
     @FXML
     public void addTask(){
-        // Task task = new Task("New Task");
-        // repo.add(task);
+        TaskRepository repo = new TaskRepository();
+        Task task = repo.add(project.getProjectId());
+        task.setName(Integer.toString(taskNum));
+        grid.add(new TaskComponent(task), (taskNum % 4), (taskNum/4));
+        taskNum++;
+
+        repo.update(task);
     }
 }

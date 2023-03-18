@@ -1,37 +1,37 @@
-package com.eecs_3311_team_3.data_access.daos;
+package com.eecs_3311_team_3.data_access.DAO;
 
 import java.util.ArrayList;
 
-import com.eecs_3311_team_3.data_model.Team;
+import com.eecs_3311_team_3.data_model.Person;
 
-public class TeamDAO extends DAO<Team>{
+public class PersonDAO extends DAO<Person, Integer, Integer> {
 
     @Override
-    public Team get(int id) {
+    public Person get(Integer id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'get'");
     }
 
     @Override
-    public ArrayList<Team> getAll(int ParentId) {
+    public ArrayList<Person> getAll(Integer ParentId) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getAll'");
     }
 
     @Override
-    public void save(Team t) {
+    public Person create(Integer ParentId) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'save'");
     }
 
     @Override
-    public void update(Team t) {
+    public void update(Person t) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'update'");
     }
 
     @Override
-    public void delete(Team t) {
+    public void delete(Person t) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
