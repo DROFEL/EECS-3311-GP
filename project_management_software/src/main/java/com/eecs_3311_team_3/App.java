@@ -23,14 +23,6 @@ public class App extends Application {
         scene = new Scene(loadFXML("Login"), 1280, 720);
         stage.setScene(scene);
         stage.show();
-        new DBController("jdbc:mysql://0.0.0.0:3306/PMS", "root", "1234");
-
-        TaskDAO taskDAO = new TaskDAO();
-        Task task = taskDAO.get(2);
-        if(task == null)
-            System.out.println("null :(");
-        else
-            System.out.println(task.getName());
 
     }
 

@@ -7,7 +7,7 @@ public class Project{
     private int projectID;
     private String name;
     private String description;
-    private ArrayList<Task> PendingTasks;
+    private ArrayList<Task> PendingTasks = null;
     
     
     
@@ -26,7 +26,6 @@ public class Project{
         this.projectID= projectID;
         this.name = name;
         this.description = description;
-        this.PendingTasks= new ArrayList<Task>();
     
     }
     
@@ -34,6 +33,16 @@ public class Project{
     public boolean addTask(Task task){
         PendingTasks.add(task);
         return true; 
+    }
+
+    public void initTasks(ArrayList<Task> tasks){
+        if(PendingTasks == null){
+            PendingTasks = tasks;
+        }
+    }
+
+    public ArrayList<Task> getTasks(){
+        return PendingTasks;
     }
     
     //method to get the project id 
@@ -60,7 +69,7 @@ public class Project{
     
     // method to set project name 
     public void setProjectName (String name){
-    this.name = name;
+        this.name = name;
     }
     
     

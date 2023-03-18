@@ -8,7 +8,7 @@
 
 <Pane id="ProjectsScene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.eecs_3311_team_3.controllers.ProjectBrowser">
    <children>
-      <Label layoutX="81.0" layoutY="47.0" style="position: absolute; width: 211px; height: 30px; left: 81px; top: 44px;" text="Projects">
+      <Label  layoutX="81.0" layoutY="47.0" style="position: absolute; width: 211px; height: 30px; left: 81px; top: 44px;" text="Projects">
          <font>
             <Font name="Segoe UI" size="36.0" />
          </font>

@@ -15,7 +15,7 @@ select * from PROJECT;
 
 # Tasks for a project (1-to-Many)
 CREATE TABLE TASK
-(taskID INT NOT NULL,
+(taskID INT NOT NULL auto_increment,
 taskName VARCHAR(50),
 taskDescription VARCHAR(250),
 taskStatus VARCHAR(20),
@@ -75,13 +75,15 @@ FOREIGN KEY (taskID) REFERENCES TASK(taskID),
 FOREIGN KEY (personID) REFERENCES PERSON(personID)
 );
 
-select * from TASK;
+select * from PROJECT;
+
+update PROJECT set projectName="project2" where projectID = 2;
+
 insert into TASK (taskID, taskName, taskDescription, taskStatus, projectID, isPending) values
-(4, "Do smth3", "riotion", "not done", 1, true)
-as new(id, name, description, status, pID, pending)
+(4, "Dmth", "riion", "not done", 1, true)
 on duplicate key update
-taskName = name,
-taskDescription = description,
-taskStatus = status,
-projectID = pID,
-isPending = pending;
+taskName = values(taskName),
+taskDescription = values(taskDescription),
+taskStatus = values(taskStatus),
+projectID = values(projectID),
+isPending = values(isPending);
