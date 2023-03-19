@@ -4,44 +4,51 @@ import com.eecs_3311_team_3.App;
 import com.eecs_3311_team_3.DatabaseConnection;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
+import javafx.scene.effect.GaussianBlur;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
-import javafx.scene.control.TextField;
-import javafx.scene.control.PasswordField;
 import java.sql.*;
+import javafx.scene.control.Alert.AlertType;
 
 public class LoginController {
 
-    @FXML
-    private Button loginButton;
+	// values are dyamically injected as they change
+	// initalize() vs constructor() https://stackoverflow.com/questions/34785417/javafx-fxml-controller-constructor-vs-initialize-method
+    @FXML private Label title;
     
-    @FXML 
-    private Label loginMessageLabel;
+    @FXML private Label loginMessageLabel;
     
-    @FXML
-    private TextField usernameTextField;
+    @FXML private TextField usernameTextField;
     
-    @FXML
-    private PasswordField passwordPasswordField;
-    
+    @FXML private PasswordField passwordPasswordField;
+
+	// "The initialize method is called after all @FXML annotated members have been injected."
+	@FXML public void initialize(){
+		title.setEffect(new GaussianBlur());
+	}
+
     @FXML
     private void login(ActionEvent e){
-        if (usernameTextField.getText().isBlank() == false && passwordPasswordField.getText().isBlank() == false) {
-        	//loginMessageLabel.setText("Login attempted");
+		System.out.println("login attempted");
+        if (!usernameTextField.getText().isBlank() && !passwordPasswordField.getText().isBlank()) {		// valid login
         	validateLogin();
-        } else {
-        	loginMessageLabel.setText("Please enter a username and password");
+        } else {		// notify user
+        	Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setHeaderText("Enter the username/password!");// line 3
+			alert.setContentText("The correct format is PLACEHOLDER");// line 4
+			alert.showAndWait(); // line 5
         }
     }
+
+
     
     public void validateLogin() {
     	DatabaseConnection connectNow = new DatabaseConnection();
     	Connection connectDB = connectNow.getConnection();
     	
     	String verifyLogin = "SELECT count(1) FROM UserAccounts WHERE username = '" + usernameTextField.getText() + "' AND _password = '" + passwordPasswordField.getText() + "'";
-    	
+
     	try {
     		Statement statement = connectDB.createStatement();
     		ResultSet queryResult = statement.executeQuery(verifyLogin);
