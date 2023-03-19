@@ -361,3 +361,8 @@ George
 JavaFX loading and applying data
 3h
 6h
+
+
+#### 3/19/2023
+
+Patrick: Fixed login screen fxml and did some refactorintg
