@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="CENTER" prefHeight="573.0" prefWidth="949.0" spacing="10.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eecs_3311_team_3.controllers.LoginController">
+   <children>
+      <Label fx:id="title" alignment="CENTER" contentDisplay="CENTER" lineSpacing="10.0" prefHeight="10.0" prefWidth="904.0" style="position: absolute; width: 211px; height: 30px; left: 81px; top: 44px;" text="Project Management Software" textAlignment="CENTER" textFill="RED" translateY="-50.0">
+         <font>
+            <Font name="Comic Sans MS" size="35.0" />
+         </font>
+      </Label>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="usernameTextField" minHeight="-Infinity" minWidth="-Infinity" prefHeight="51.0" prefWidth="491.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+         <VBox.margin>
+            <Insets left="100.0" right="100.0" />
+         </VBox.margin>
+      </TextField>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <PasswordField fx:id="passwordPasswordField" prefHeight="51.0" prefWidth="380.0">
+         <VBox.margin>
+            <Insets left="100.0" right="100.0" />
+         </VBox.margin></PasswordField>
+      <Label fx:id="loginMessageLabel" prefHeight="17.0" prefWidth="471.0" />
+      <Button id="loginButton" fx:id="loginButton" mnemonicParsing="false" onAction="#login" prefHeight="39.0" prefWidth="122.0" text="Login">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+   </children>
+   <padding>
+      <Insets bottom="30.0" left="30.0" right="30.0" top="100.0" />
+   </padding>
+</VBox>
