@@ -14,7 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
-public class ProjectBrowser implements Initializable{
+public class ProjectBrowser implements Initializable {
 
     @FXML
     private VBox projectsList;

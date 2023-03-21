@@ -1,19 +1,17 @@
 package com.eecs_3311_team_3.controllers;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
+import com.eecs_3311_team_3.QuickDisplay;
 import com.eecs_3311_team_3.components.TaskComponent;
-import com.eecs_3311_team_3.data_access.ProjectRepository;
 import com.eecs_3311_team_3.data_access.TaskRepository;
 import com.eecs_3311_team_3.data_model.Project;
 import com.eecs_3311_team_3.data_model.Task;
 
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.layout.GridPane;
 
-public class ProjectController implements Initializable {
+import static javafx.application.Application.launch;
+
+public class ProjectController {
 
     @FXML
     GridPane grid;
@@ -22,15 +20,19 @@ public class ProjectController implements Initializable {
 
     public static Project project;
 
-    @Override
-    public void initialize(URL arg0, ResourceBundle arg1) {
-        ProjectRepository repo = new ProjectRepository();
-        project = repo.get(project.getProjectId());
-        for (Task task : project.getTasks()){
-            grid.add(new TaskComponent(task), (taskNum % 4), (taskNum/4));
-            taskNum++;
-        }
+    public ProjectController(){
+        System.out.println("XD");
     }
+
+//    @Override
+//    public void initialize(URL arg0, ResourceBundle arg1) {
+//        ProjectRepository repo = new ProjectRepository();
+//        project = repo.get(project.getProjectId());
+//        for (Task task : project.getTasks()){
+//            grid.add(new TaskComponent(task), (taskNum % 4), (taskNum/4));
+//            taskNum++;
+//        }
+//    }
 
     @FXML
     public void addTask(){
@@ -41,5 +43,11 @@ public class ProjectController implements Initializable {
         taskNum++;
 
         repo.update(task);
+    }
+
+    public void promptEdit(){}
+
+    public static void main (String[] args){
+        QuickDisplay.show("Project.fxml");
     }
 }

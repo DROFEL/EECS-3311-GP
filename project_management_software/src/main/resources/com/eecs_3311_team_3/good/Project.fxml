@@ -15,8 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="763.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.eecs_3311_team_3.controllers.ProjectController">
    <center>
       <GridPane gridLinesVisible="true" hgap="10.0" vgap="10.0" BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -39,7 +38,7 @@
          </padding>
          <children>
             <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="75.0" prefWidth="134.0" GridPane.columnIndex="3" />
-            <TextArea prefHeight="200.0" prefWidth="200.0" promptText="prop" style="-fx-background-color: YELLOW;" text="task.fxml element" GridPane.rowIndex="1">
+            <TextArea prefHeight="200.0" prefWidth="200.0" promptText="prop" style="-fx-background-color: YELLOW;" text="SSSSSSSSS" GridPane.rowIndex="1">
                <font>
                   <Font size="14.0" />
                </font>
@@ -59,7 +58,7 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edit">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Edit Project" />
+                    <MenuItem mnemonicParsing="false" onAction="#promptEdit" text="Edit Project" />
                   </items>
                 </Menu>
                 <Menu fx:id="settingsButton" mnemonicParsing="false" text="Settings">
@@ -71,12 +70,12 @@
             </MenuBar>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label alignment="TOP_LEFT" prefHeight="40.0" prefWidth="711.0" text="Project Name nnnnnnnnnnnnnnnnnnnnnnnnnnn">
+                  <Label alignment="TOP_LEFT" prefHeight="40.0" prefWidth="656.0" text="Project Name">
                      <font>
                         <Font size="24.0" />
                      </font>
                      <padding>
-                        <Insets left="20.0" />
+                        <Insets left="10.0" />
                      </padding>
                   </Label>
                   <HBox alignment="TOP_RIGHT" prefHeight="75.0" prefWidth="525.0" spacing="20.0" HBox.hgrow="ALWAYS">

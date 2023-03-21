@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" prefHeight="573.0" prefWidth="949.0" spacing="10.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.eecs_3311_team_3.controllers.LoginController">
+<VBox alignment="CENTER" prefHeight="573.0" prefWidth="949.0" spacing="10.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eecs_3311_team_3.controllers.LoginController">
    <children>
       <Label fx:id="title" alignment="CENTER" contentDisplay="CENTER" lineSpacing="10.0" prefHeight="10.0" prefWidth="904.0" style="position: absolute; width: 211px; height: 30px; left: 81px; top: 44px;" text="Project Management Software" textAlignment="CENTER" textFill="RED" translateY="-50.0">
          <font>
