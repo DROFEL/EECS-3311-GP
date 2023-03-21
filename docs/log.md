@@ -366,3 +366,7 @@ JavaFX loading and applying data
 #### 3/19/2023
 
 Patrick: Fixed login screen fxml and did some refactorintg
+
+#### 3/21/2023
+
+Patrick : Added new `inputPrompt.fxml` GUI, and reworked controllers/`QuickDisplay`
