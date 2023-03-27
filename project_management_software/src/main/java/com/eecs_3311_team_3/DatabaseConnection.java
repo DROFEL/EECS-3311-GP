@@ -6,7 +6,7 @@ public class DatabaseConnection {
 	public Connection databaseLink;
 	
 	public Connection getConnection() {
-		String databaseName = "pms";
+		String databaseName = "PMS";
 		String databaseUser = "root";
 		String databasePassword = "1234";
 		String url = "jdbc:mysql://localhost/" + databaseName;

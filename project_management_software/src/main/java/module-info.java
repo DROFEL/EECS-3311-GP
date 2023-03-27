@@ -8,8 +8,9 @@ module com.eecs_3311_team_3 {
     requires java.naming;
 
     opens com.eecs_3311_team_3.controllers to javafx.fxml;
-    opens com.eecs_3311_team_3.data_access to org.hibernate.orm.core;
+    opens com.eecs_3311_team_3.data_access.DAO to org.hibernate.orm.core;
     exports com.eecs_3311_team_3;
     exports com.eecs_3311_team_3.data_model;
     exports com.eecs_3311_team_3.controllers;
+    opens com.eecs_3311_team_3.data_access.Repository to org.hibernate.orm.core;
 }

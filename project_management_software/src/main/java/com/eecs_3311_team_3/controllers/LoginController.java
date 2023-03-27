@@ -3,6 +3,8 @@ package com.eecs_3311_team_3.controllers;
 import com.eecs_3311_team_3.App;
 import com.eecs_3311_team_3.DatabaseConnection;
 
+import com.eecs_3311_team_3.data_access.Repository.UserRepository;
+import com.eecs_3311_team_3.data_model.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -37,26 +39,36 @@ public class LoginController {
     }
     
     public void validateLogin() {
-    	DatabaseConnection connectNow = new DatabaseConnection();
-    	Connection connectDB = connectNow.getConnection();
-    	
-    	String verifyLogin = "SELECT count(1) FROM UserAccounts WHERE username = '" + usernameTextField.getText() + "' AND _password = '" + passwordPasswordField.getText() + "'";
-    	
-    	try {
-    		Statement statement = connectDB.createStatement();
-    		ResultSet queryResult = statement.executeQuery(verifyLogin);
-    		
-    		System.out.println(queryResult.toString());
-    		
-    		while(queryResult.next()) {
-    			if (queryResult.getInt(1) == 1) {
-    				loginMessageLabel.setText("Login accepted");
-    			} else {
-    				loginMessageLabel.setText("Invalid login attempt");
-    			}
-    		}
-    	} catch(Exception e) {
-    		e.printStackTrace();
-    	}
+//    	DatabaseConnection connectNow = new DatabaseConnection();
+//    	Connection connectDB = connectNow.getConnection();
+//
+//    	String verifyLogin = "SELECT count(1) FROM UserAccounts WHERE username = '" + usernameTextField.getText() + "' AND _password = '" + passwordPasswordField.getText() + "'";
+//    	try {
+//    		Statement statement = connectDB.createStatement();
+//    		ResultSet queryResult = statement.executeQuery(verifyLogin);
+//
+//    		System.out.println(queryResult.toString());
+//
+//    		while(queryResult.next()) {
+//    			if (queryResult.getInt(1) == 1) {
+//    				loginMessageLabel.setText("Login accepted");
+//    			} else {
+//    				loginMessageLabel.setText("Invalid login attempt");
+//    			}
+//    		}
+//    	} catch(Exception e) {
+//    		e.printStackTrace();
+//    	}
+
+		UserRepository repo = new UserRepository();
+		User user = repo.get(usernameTextField.getText());
+		if(user == null) {
+            loginMessageLabel.setText("Invalid login attempt");
+        } else {
+            if(user.password.equals(passwordPasswordField.getText()) ){
+//                System.out.println("Login accepted");
+                loginMessageLabel.setText("Login accepted");
+            }
+        }
     }
 }

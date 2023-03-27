@@ -1,4 +1,4 @@
-package com.eecs_3311_team_3.data_access;
+package com.eecs_3311_team_3.data_access.Repository;
 
 import java.sql.*;
 

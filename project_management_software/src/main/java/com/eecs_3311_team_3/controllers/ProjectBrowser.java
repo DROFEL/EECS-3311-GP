@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import com.eecs_3311_team_3.components.BrowserEntityComponent;
-import com.eecs_3311_team_3.data_access.ProjectRepository;
+import com.eecs_3311_team_3.data_access.Repository.ProjectRepository;
 import com.eecs_3311_team_3.data_model.Project;
 
 import javafx.fxml.FXML;

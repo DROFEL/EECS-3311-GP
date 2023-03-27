@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.eecs_3311_team_3.data_access.DBController;
+import com.eecs_3311_team_3.data_access.Repository.DBController;
 import com.eecs_3311_team_3.data_model.Project;
 
 public class ProjectDAO extends DAO<Project, Integer, String> {
@@ -84,7 +84,7 @@ public class ProjectDAO extends DAO<Project, Integer, String> {
         "set  " +
         "projectName = \"%s\", " +
         "projectDescription = \"%s\" " +
-        "where projectID = \"%d\"", p.getProjectname(), p.getProjectDescription(), p.getProjectId()));
+        "where projectID = \"%d\"", p.projectName, p.projectDescription, p.projectID));
     }
 
     
@@ -93,7 +93,7 @@ public class ProjectDAO extends DAO<Project, Integer, String> {
      */
     @Override
     public void delete(Project p) {
-        DBController.executeGet(String.format("delete from PROJECT where projectID = %d;", p.getProjectId()));
+        DBController.executeGet(String.format("delete from PROJECT where projectID = %d;", p.projectID));
     }
 
     
@@ -107,7 +107,7 @@ public class ProjectDAO extends DAO<Project, Integer, String> {
         String name = result.getString("projectName");
         String description = result.getString("projectDescription");
         int projectID = result.getInt("projectID");
-        Project project = new Project(projectID, name, description);
+        Project project = new Project();
         return project;
     }
 }
