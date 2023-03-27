@@ -370,3 +370,6 @@ Patrick: Fixed login screen fxml and did some refactorintg
 #### 3/21/2023
 
 Patrick : Added new `inputPrompt.fxml` GUI, and reworked controllers/`QuickDisplay`
+
+## 3/27/2023
+Patrick: Controller can now access db methods, can add entries into table, and also refactored some GUI code 
