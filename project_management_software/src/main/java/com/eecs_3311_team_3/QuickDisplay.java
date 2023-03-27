@@ -1,29 +1,30 @@
 package com.eecs_3311_team_3;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 import static com.eecs_3311_team_3.LoadFXML.load;
 
-// for testing purposes
-public class QuickDisplay extends Application {
+// for displaying some secondary GUI once app has started
+// for mainly testing
+public class QuickDisplay  {
 
-    static String FXML;
-
-    @Override
-    public void start(Stage stage) throws Exception {
-        // testing purposes
-        Stage stage1 = new Stage();
-        Parent root = load(FXML);
-        Scene scene = new Scene(root, root.prefWidth(-1), root.prefHeight(-1));     // display with prefwidth/prefheight
-
-        stage1.setScene(scene);
-        stage1.show();
-    }
     public static void show(String fxml){
-        FXML = fxml;
-        launch();
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml));
+        try {
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            Scene scene = new Scene(root, root.prefWidth(-1), root.prefHeight(-1));     // display with prefwidth/prefheight
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }
