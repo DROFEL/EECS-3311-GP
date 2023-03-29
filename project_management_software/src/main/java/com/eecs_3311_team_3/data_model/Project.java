@@ -6,19 +6,38 @@ import org.hibernate.annotations.*;
 import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.util.ArrayList;
 
 @Entity
-@Table(name="TASK")
-public class Project{
+@Table(name="PROJECT")
+public class Project implements ParentDependant<Integer, Integer> {
     @Id
     @Column(name="projectID")
     public int projectID;
-    @Id
     @Column(name="ownerID")
     public int ownerID;
     @Column(name="projectName")
     public String projectName;
     @Column(name="projectDescription")
     public String projectDescription;
-    
+
+    ArrayList<Task> taskList;
+
+    public ArrayList<Task> getTaskList() {
+        return taskList;
+    }
+
+    public void setTaskList(ArrayList<Task> taskList) {
+        this.taskList = taskList;
+    }
+
+    @Override
+    public void setParentID(Integer parentID) {
+        ownerID = parentID;
+    }
+
+    @Override
+    public void setID(Integer id) {
+        projectID = id;
+    }
 }

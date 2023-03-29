@@ -12,6 +12,8 @@ import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
+
+import java.io.IOException;
 import java.sql.*;
 
 public class LoginController {
@@ -39,26 +41,6 @@ public class LoginController {
     }
     
     public void validateLogin() {
-//    	DatabaseConnection connectNow = new DatabaseConnection();
-//    	Connection connectDB = connectNow.getConnection();
-//
-//    	String verifyLogin = "SELECT count(1) FROM UserAccounts WHERE username = '" + usernameTextField.getText() + "' AND _password = '" + passwordPasswordField.getText() + "'";
-//    	try {
-//    		Statement statement = connectDB.createStatement();
-//    		ResultSet queryResult = statement.executeQuery(verifyLogin);
-//
-//    		System.out.println(queryResult.toString());
-//
-//    		while(queryResult.next()) {
-//    			if (queryResult.getInt(1) == 1) {
-//    				loginMessageLabel.setText("Login accepted");
-//    			} else {
-//    				loginMessageLabel.setText("Invalid login attempt");
-//    			}
-//    		}
-//    	} catch(Exception e) {
-//    		e.printStackTrace();
-//    	}
 
 		UserRepository repo = new UserRepository();
 		User user = repo.get(usernameTextField.getText());
@@ -66,8 +48,12 @@ public class LoginController {
             loginMessageLabel.setText("Invalid login attempt");
         } else {
             if(user.password.equals(passwordPasswordField.getText()) ){
-//                System.out.println("Login accepted");
                 loginMessageLabel.setText("Login accepted");
+                try {
+                    App.setRoot("Project");
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         }
     }

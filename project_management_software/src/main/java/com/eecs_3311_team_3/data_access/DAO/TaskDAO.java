@@ -1,10 +1,14 @@
 package com.eecs_3311_team_3.data_access.DAO;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.eecs_3311_team_3.data_model.Task;
+import org.hibernate.query.Query;
 
-import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 public class TaskDAO extends DAO_ParentDependant<Task, Integer, Integer> {
 
@@ -14,10 +18,15 @@ public class TaskDAO extends DAO_ParentDependant<Task, Integer, Integer> {
 
     @Override
     public ArrayList<Task> getAll(Integer ParentId) {
-        Query query = session.createQuery("from Task where projectID = :id");
-        query.setParameter("id", ParentId);
-        ArrayList<Task> tasks = new ArrayList<>(query.getResultList());
-        return tasks;
+        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaQuery<Task> cr = cb.createQuery(Task.class);
+        Root<Task> root = cr.from(Task.class);
+        cr.select(root).where(root.get("taskID").in(ParentId));
+
+        Query<Task> query = session.createQuery(cr);
+        List<Task> results = query.getResultList();
+
+        return new ArrayList<Task>(results);
     }
 
 }

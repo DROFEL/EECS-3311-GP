@@ -8,8 +8,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-import com.eecs_3311_team_3.data_access.daos.TaskDAO;
-
 /**
  * JavaFX App
  */

@@ -28,7 +28,7 @@ public class ProjectBrowser implements Initializable{
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         ProjectRepository repo = new ProjectRepository();
-        ArrayList<Project> projects = repo.getAll("0");
+        ArrayList<Project> projects = repo.getAll(1);
         System.out.println(repo.get(1));
         for (Project project : projects) {
             Pane projectEntity =  new BrowserEntityComponent(project);
