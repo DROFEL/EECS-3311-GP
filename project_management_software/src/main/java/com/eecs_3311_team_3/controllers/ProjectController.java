@@ -7,6 +7,8 @@ import com.eecs_3311_team_3.data_model.Task;
 
 import com.eecs_3311_team_3.loadGUI;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -17,6 +19,10 @@ public class ProjectController {
 
     @FXML
     GridPane grid;
+    @FXML
+    Label projectLabel;
+    @FXML
+    Button newTaskButton;
 
     private int taskNum = 0;
 
@@ -32,11 +38,10 @@ public class ProjectController {
 //        project = repo.get(project.getProjectId());
 //        for (Task task : project.getTasks()){
 //            grid.add(new TaskComponent(task), (taskNum % 4), (taskNum/4));
-//            taskNum++;
+//            ta    skNum++;
 //        }
 //    }
 
-    @FXML
     public void addTask(){
         TaskRepository repo = new TaskRepository();
         Task task = repo.add(project.getProjectId());
@@ -49,17 +54,38 @@ public class ProjectController {
 
     // pops open a prompt to enter info about project
     public void promptEdit(){
-        loadGUI xd = new loadGUI("good/infoPrompt.fxml");
-        Stage stage = xd.getStage();
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setOnCloseRequest(event -> {
-            event.
+        System.out.println("Project prompt opened");
+        System.out.println(projectLabel.getText());
+        loadGUI gui = initPrompt();
+        InfoPrompt prompt = (InfoPrompt) gui.getController();
+
+        prompt.setTopic("Project");
+        prompt.submit.setOnAction((event) -> {
+            projectLabel.setText(prompt.title_field.getText());
+            System.out.println("add project instance to DB");
+            gui.getStage().close();
         });
-        InfoPrompt xd1 = xd.getLoader().getController();
-        xd1.setTopic("Project");
-//        xd1.setDAO(new ProjectDAO());
-        xd.show();
+        gui.show();
     }
+
+    public void promptTask(){
+        System.out.println("Task prompt opened");
+        loadGUI taskPopup = initPrompt();
+        InfoPrompt prompt = (InfoPrompt) taskPopup.getController();
+        prompt.setTopic("Task");
+        prompt.submit.setOnAction((event) -> {
+            System.out.println("add new task to db");
+            // show task on GUI on gridpane
+            taskPopup.getStage().close();
+        });
+    }
+
+    public loadGUI initPrompt(){
+        loadGUI gui = new loadGUI("good/infoPrompt.fxml");
+        gui.getStage().initModality(Modality.APPLICATION_MODAL);
+        return gui;
+    }
+
 
 
 

@@ -28,6 +28,10 @@ public class loadGUI {
         return this.loader;
     }
 
+    public Object getController(){
+        return this.loader.getController();
+    }
+
     public Scene getScene(){
         return this.stage.getScene();
     }

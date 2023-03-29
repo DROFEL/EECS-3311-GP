@@ -10,27 +10,27 @@
 
 <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="469.0" prefWidth="685.0" spacing="20.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.eecs_3311_team_3.controllers.InfoPrompt">
    <children>
-      <Text fx:id="promptName" strokeType="OUTSIDE" strokeWidth="0.0" text="New {PLACEHOLDER} Name:" textAlignment="CENTER" wrappingWidth="603.13671875">
+      <Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" text="New {PLACEHOLDER} Name:" textAlignment="CENTER" wrappingWidth="603.13671875">
          <font>
             <Font size="30.0" />
          </font>
       </Text>
-      <TextField fx:id="prompt" prefHeight="75.0" prefWidth="541.0">
+      <TextField fx:id="title_field" prefHeight="75.0" prefWidth="541.0">
          <font>
             <Font size="17.0" />
          </font>
       </TextField>
-      <Text fx:id="descName" strokeType="OUTSIDE" strokeWidth="0.0" text="{PLACEHOLDER} description:">
+      <Text fx:id="desc" strokeType="OUTSIDE" strokeWidth="0.0" text="{PLACEHOLDER} description:">
          <font>
             <Font size="25.0" />
          </font>
       </Text>
-      <TextArea fx:id="desc" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+      <TextArea fx:id="desc_field" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
          <font>
             <Font size="17.0" />
          </font>
       </TextArea>
-      <Button mnemonicParsing="false" onAction="#submit" prefHeight="27.0" prefWidth="131.0" text="dun" translateY="10.0">
+      <Button fx:id = "submit" mnemonicParsing="false"  prefHeight="27.0" prefWidth="131.0" text="dun" translateY="10.0">
          <font>
             <Font size="13.0" />
          </font>

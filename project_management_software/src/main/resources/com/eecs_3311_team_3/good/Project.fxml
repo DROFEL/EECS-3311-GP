@@ -70,7 +70,7 @@
             </MenuBar>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label alignment="TOP_LEFT" prefHeight="40.0" prefWidth="656.0" text="Project Name">
+                  <Label fx:id = "projectLabel" alignment="TOP_LEFT" prefHeight="40.0" prefWidth="656.0" text="Project Name">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -82,7 +82,7 @@
                      <children>
                         <Button disable="true" mnemonicParsing="false" text="Button" />
                         <Button disable="true" mnemonicParsing="false" text="Button" />
-                        <Button fx:id="newTaskButton" mnemonicParsing="false" onAction="#addTask" text="New Task" />
+                        <Button fx:id="newTaskButton" mnemonicParsing="false" onAction="#promptTask" text="New Task" />
                      </children>
                      <HBox.margin>
                         <Insets top="5.0" />
