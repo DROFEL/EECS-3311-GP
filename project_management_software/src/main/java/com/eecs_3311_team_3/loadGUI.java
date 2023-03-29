@@ -1,4 +1,4 @@
-package com.eecs_3311_team_3.controllers;
+package com.eecs_3311_team_3;
 
 import com.eecs_3311_team_3.App;
 import javafx.fxml.FXMLLoader;

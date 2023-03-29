@@ -1,22 +1,16 @@
 package com.eecs_3311_team_3.controllers;
 
-import com.eecs_3311_team_3.LoadFXML;
-import com.eecs_3311_team_3.QuickDisplay;
 import com.eecs_3311_team_3.components.TaskComponent;
-import com.eecs_3311_team_3.data_access.DAO.ProjectDAO;
 import com.eecs_3311_team_3.data_access.TaskRepository;
 import com.eecs_3311_team_3.data_model.Project;
 import com.eecs_3311_team_3.data_model.Task;
 
+import com.eecs_3311_team_3.loadGUI;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import static com.eecs_3311_team_3.LoadFXML.loadView;
 import static javafx.application.Application.launch;
 
 public class ProjectController {
@@ -53,10 +47,15 @@ public class ProjectController {
         repo.update(task);
     }
 
+    // pops open a prompt to enter info about project
     public void promptEdit(){
         loadGUI xd = new loadGUI("good/infoPrompt.fxml");
-        xd.getStage().initModality(Modality.APPLICATION_MODAL);
-        infoPromptController xd1 = xd.getLoader().getController();
+        Stage stage = xd.getStage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setOnCloseRequest(event -> {
+            event.
+        });
+        InfoPrompt xd1 = xd.getLoader().getController();
         xd1.setTopic("Project");
 //        xd1.setDAO(new ProjectDAO());
         xd.show();
