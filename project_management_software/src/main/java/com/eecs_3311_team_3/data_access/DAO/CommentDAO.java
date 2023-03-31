@@ -1,25 +1,25 @@
-package com.eecs_3311_team_3.data_access.daos;
+package com.eecs_3311_team_3.data_access.DAO;
 
 import java.util.ArrayList;
 
 import com.eecs_3311_team_3.data_model.Task;
 
-public class CommentDAO extends DAO<Task>{
+public class CommentDAO extends DAO<Task, Integer, Integer>{
 
     @Override
-    public Task get(int id) {
+    public Task get(Integer id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'get'");
     }
 
     @Override
-    public ArrayList<Task> getAll(int ParentId) {
+    public ArrayList<Task> getAll(Integer ParentId) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getAll'");
     }
 
     @Override
-    public void save(Task t) {
+    public Task create(Integer ParentId) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'save'");
     }

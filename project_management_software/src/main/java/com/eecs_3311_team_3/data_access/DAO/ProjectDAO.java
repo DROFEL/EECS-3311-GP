@@ -1,4 +1,4 @@
-package com.eecs_3311_team_3.data_access.daos;
+package com.eecs_3311_team_3.data_access.DAO;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import com.eecs_3311_team_3.data_access.DBController;
 import com.eecs_3311_team_3.data_model.Project;
 
-public class ProjectDAO extends DAO<Project> {
+public class ProjectDAO extends DAO<Project, Integer, String> {
 
     public ProjectDAO() {
         super();
@@ -19,7 +19,7 @@ public class ProjectDAO extends DAO<Project> {
      * @return Project
      */
     @Override
-    public Project get(int id) {
+    public Project get(Integer id) {
         try {
             ResultSet result = DBController.executeGet(String.format("select * from PROJECT where projectID = %d;", id));
             if (result.next()) {
@@ -38,11 +38,11 @@ public class ProjectDAO extends DAO<Project> {
      * @return ArrayList<Project>
      */
     @Override
-    public ArrayList<Project> getAll(int ParentId) {
+    public ArrayList<Project> getAll(String ParentId) {
         ArrayList<Project> projects = null;
         try {
             ResultSet result = DBController
-                    .executeGet(String.format("select * from PROJECT;" /*where projectID = %d;*/, ParentId));
+                    .executeGet(String.format("select * from PROJECT;" /*where username = %s;*/, ParentId));
             projects = new ArrayList<>();
             while (result.next()) {
                 projects.add(assemblProject(result));
@@ -58,12 +58,19 @@ public class ProjectDAO extends DAO<Project> {
      * @param p
      */
     @Override
-    public void save(Project p) {
-        DBController.executeSet(String.format("insert into PROJECT (projectID, projectName, projectDescription) values " +
-        "(%d, \"%s\", \"%s\") " +
-        "on duplicate key update " +
-        "projectName = values(projectName), " +
-        "projectDescription = values(projectDescription);", p.getProjectId(), p.getProjectname(), p.getProjectDescription()));
+    public Project create(String ParentId) {
+        int generatedID = 0;
+        try {
+            DBController.executeSet("insert into TASK (taskID) values (null);");
+
+            ResultSet response = DBController.executeGet("SELECT * FROM PROJECT ORDER BY projectID DESC LIMIT 1;");
+            if(response.next()){
+                generatedID = response.getInt("projectID");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return new Project();
     }
 
     
@@ -72,8 +79,12 @@ public class ProjectDAO extends DAO<Project> {
      */
     @Override
     public void update(Project p) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
+        DBController.executeSet(String.format(
+        "update PROJECT " +
+        "set  " +
+        "projectName = \"%s\", " +
+        "projectDescription = \"%s\" " +
+        "where projectID = \"%d\"", p.getProjectname(), p.getProjectDescription(), p.getProjectId()));
     }
 
     
@@ -82,7 +93,6 @@ public class ProjectDAO extends DAO<Project> {
      */
     @Override
     public void delete(Project p) {
-        this.getController();
         DBController.executeGet(String.format("delete from PROJECT where projectID = %d;", p.getProjectId()));
     }
 

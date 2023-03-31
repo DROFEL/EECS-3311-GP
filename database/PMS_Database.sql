@@ -2,23 +2,19 @@ CREATE SCHEMA PMS;
 USE PMS;
 
 CREATE TABLE USERACCOUNTS
-(idUserAccounts INT UNSIGNED NOT NULL AUTO_INCREMENT,
-firstname VARCHAR(45) NOT NULL,
-lastname VARCHAR(45) NOT NULL,
-username VARCHAR(45) NOT NULL,
+(username VARCHAR(45) NOT NULL AUTO_INCREMENT,
 _password VARCHAR(45) NOT NULL,
-PRIMARY KEY (idUserAccounts)
+PRIMARY KEY (idUserAccounts),
 );
-
-INSERT INTO UserAccounts(firstname, lastname, username, _password) VALUES ('dev/QA', 'team', 'DevQAlogin', 'SQLigma');
-INSERT INTO UserAccounts(firstname, lastname, username, _password) VALUES ('client/user', 'team', 'ClientUserlogin', 'SQLigma');
 
 CREATE TABLE PERSON
 (personID INT UNSIGNED NOT NULL AUTO_INCREMENT,
-personName VARCHAR(50),
+firstname VARCHAR(45) NOT NULL,
+lastname VARCHAR(45) NOT NULL,
 email VARCHAR(50),
 phoneNum INT,
-PRIMARY KEY (personID)
+PRIMARY KEY (personID),
+FOREIGN KEY (username) REFERENCES USERACCOUNTS(username)
 );
 
 # Teams consisting of multiple members and one leader (Many-to-Many, 1-to-Many)
@@ -34,8 +30,10 @@ CREATE TABLE PROJECT
 projectName VARCHAR(50),
 projectDescription VARCHAR(500),
 teamID INT UNSIGNED,
+parentProjectID INT UNSIGNED,
 PRIMARY KEY (projectID),
-FOREIGN KEY (teamID) REFERENCES TEAM(teamID)
+FOREIGN KEY (username) REFERENCES USERACCOUNTS(username)
+FOREIGN KEY (parentProjectID) REFERENCES PROJECT(projectID)
 );
 
 # Tasks for a project (1-to-Many)
@@ -50,7 +48,7 @@ PRIMARY KEY (taskID),
 FOREIGN KEY (projectID) REFERENCES PROJECT(projectID)
 );
 
-# A Person's comments on a task (1 Person, 1 Task, Many Comments)
+# A Persons comments on a task (1 Person, 1 Task, Many Comments)
 CREATE TABLE TASKCOMMENT
 (commentID INT UNSIGNED NOT NULL AUTO_INCREMENT,
 commentDescription VARCHAR(250),

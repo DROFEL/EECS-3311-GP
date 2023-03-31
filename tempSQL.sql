@@ -8,10 +8,6 @@ projectDescription VARCHAR(500),
 PRIMARY KEY (projectID)
 );
 
-insert into PROJECT (projectID, projectName, projectDescription) values
-(1, "Some project", "Dedeciptription");
-
-select * from PROJECT;
 
 # Tasks for a project (1-to-Many)
 CREATE TABLE TASK

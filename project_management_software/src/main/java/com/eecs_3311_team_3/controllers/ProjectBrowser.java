@@ -14,7 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
-public class ProjectBrowser implements Initializable{
+public class ProjectBrowser implements Initializable {
 
     @FXML
     private VBox projectsList;
@@ -28,7 +28,7 @@ public class ProjectBrowser implements Initializable{
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         ProjectRepository repo = new ProjectRepository();
-        ArrayList<Project> projects = repo.getAll();
+        ArrayList<Project> projects = repo.getAll("0");
         System.out.println(repo.get(1));
         for (Project project : projects) {
             Pane projectEntity =  new BrowserEntityComponent(project);

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.text.Font?>
+
+
+<TextArea prefHeight="200.0" prefWidth="200.0" promptText="prop" style="-fx-background-color: YELLOW;" text="PLACEHolder" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <font>
+      <Font size="28.0" />
+   </font>
+</TextArea>

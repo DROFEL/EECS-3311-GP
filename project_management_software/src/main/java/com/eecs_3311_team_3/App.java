@@ -7,32 +7,31 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLOutput;
 
 import com.eecs_3311_team_3.data_access.DBController;
+import com.eecs_3311_team_3.data_model.Task;
+
+import static com.eecs_3311_team_3.LoadFXML.load;
+
 /**
  * JavaFX App
  */
+// TODO: enable back build of this class later, just for quick ui launch times
 public class App extends Application {
 
     private static Scene scene;
     @Override
     public void start(Stage stage) throws IOException {
-        new DBController("jdbc:mysql://0.0.0.0:3306/PMS", "root", "1234");
-        
-        scene = new Scene(loadFXML("ProjectBrowser"), 1280, 720);
+        scene = new Scene(load("Project.fxml"), 1280, 720);
         stage.setScene(scene);
         stage.show();
-
     }
 
     public static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
+        scene.setRoot(load(fxml));
     }
 
-    private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-        return fxmlLoader.load();
-    }
 
     public static void main(String[] args) {
         launch();
