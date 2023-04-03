@@ -32,9 +32,7 @@ public class LoginController {
     @FXML private PasswordField passwordPasswordField;
 
 	// "The initialize method is called after all @FXML annotated members have been injected."
-	@FXML public void initialize(){
-		title.setEffect(new GaussianBlur());
-	}
+
 
     @FXML
     private void login(ActionEvent e){
@@ -44,7 +42,7 @@ public class LoginController {
         } else {		// notify user
         	Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setHeaderText("Enter the username/password!");// line 3
-			alert.setContentText("The correct format is PLACEHOLDER");// line 4
+			alert.setContentText("You must fill out both fields");// line 4
 			alert.showAndWait(); // line 5
         }
     }
