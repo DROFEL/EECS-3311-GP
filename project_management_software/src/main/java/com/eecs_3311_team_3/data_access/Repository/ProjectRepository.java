@@ -9,44 +9,48 @@ import com.eecs_3311_team_3.data_model.Task;
 
 public class ProjectRepository implements PM_Repository<Project, Integer, Integer> {
 
-    ProjectDAO projectDAO;
-    TaskDAO taskDAO; 
-
-
-    public ProjectRepository(){
-        projectDAO = new ProjectDAO();
-        taskDAO = new TaskDAO();
-    }
 
     @Override
     public Project get(Integer id) {
-        Project project = projectDAO.get(id);
-//        project.setTaskList(taskDAO.getAll(project.projectID));
-        return project;
+
+        ProjectDAO dao = new ProjectDAO();
+        Project result = dao.get(id);
+        dao.close();
+        return result;
+
     }
 
     @Override
     public ArrayList<Project> getAll(Integer ParentId) {
-        ArrayList<Project> projects = projectDAO.getAll(ParentId);
-        for (Project project : projects) {
-//            project.setTaskList(taskDAO.getAll(project.projectID));
-        }
-        return projects;
+
+        ProjectDAO dao = new ProjectDAO();
+        ArrayList<Project> result = dao.getAll(ParentId);
+        dao.close();
+        return result;
+
     }
 
     @Override
     public Project add(Integer ParentId) {
-        return projectDAO.create(ParentId);
+        ProjectDAO dao = new ProjectDAO();
+        Project result = dao.create(ParentId);
+        dao.close();
+        return result;
     }
 
     @Override
     public void update(Project instance) {
-        projectDAO.update(instance);
+        ProjectDAO dao = new ProjectDAO();
+        dao.update(instance);
+        dao.close();
     }
 
     @Override
     public void delete(Project instance) {
-        projectDAO.delete(instance);
+
+        ProjectDAO dao = new ProjectDAO();
+        dao.delete(instance);
+        dao.close();
     }
 
 }

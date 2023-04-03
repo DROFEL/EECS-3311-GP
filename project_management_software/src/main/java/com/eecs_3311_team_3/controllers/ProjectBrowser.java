@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 
 import com.eecs_3311_team_3.App;
 import com.eecs_3311_team_3.CacheSinglenton;
+import com.eecs_3311_team_3.LoadGUI;
 import com.eecs_3311_team_3.components.BrowserEntityComponent;
 import com.eecs_3311_team_3.data_access.Repository.ProjectRepository;
 import com.eecs_3311_team_3.data_model.Project;
@@ -16,6 +17,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 
 public class ProjectBrowser implements Initializable {
 
@@ -23,18 +25,29 @@ public class ProjectBrowser implements Initializable {
     private VBox projectsList;
 
     @FXML
-    private void createProject() throws IOException {
-//         Pane projectEntity =  FXMLLoader.load(App.class.getResource("BrowserEntity.fxml"));
+    private void createProject() throws IOException
+    {
+        LoadGUI gui = initPrompt();
+        InfoPrompt prompt = (InfoPrompt) gui.getController();
+        prompt.setTopic("New Project");
 
-         ProjectRepository repo = new ProjectRepository();
-         Project pr = repo.add(CacheSinglenton.userID);
-         pr.projectName = "New Project";
-         repo.update(pr);
+        prompt.submit.setOnAction((event) -> {
+            ProjectRepository repo = new ProjectRepository();
+            Project pr = repo.add(CacheSinglenton.userID);
+            System.out.println(pr.projectID);
 
-         BrowserEntityComponent cp = new BrowserEntityComponent(pr);
+            pr.projectName = prompt.title_field.getText();
+            pr.projectDescription = prompt.desc_field.getText();
+            gui.getStage().close();
 
-         projectsList.getChildren().add(cp);
+            System.out.println(pr.projectID);
+            repo.update(pr);
 
+            BrowserEntityComponent cp = new BrowserEntityComponent(pr);
+            projectsList.getChildren().add(cp);
+        });
+
+        gui.show();
     }
 
     @Override
@@ -49,5 +62,11 @@ public class ProjectBrowser implements Initializable {
 //            Pane projectEntity =  new BrowserEntityComponent(project);
 //            projectsList.getChildren().add(projectEntity);
         }
+    }
+
+    public LoadGUI initPrompt() {
+        LoadGUI gui = new LoadGUI("good/infoPrompt.fxml");
+        gui.getStage().initModality(Modality.APPLICATION_MODAL);
+        return gui;
     }
 }

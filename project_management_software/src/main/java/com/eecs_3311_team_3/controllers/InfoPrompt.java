@@ -20,7 +20,7 @@ public class InfoPrompt {
 
     public InfoPrompt(){};
     public void setTopic(String topic){                        // placeholder values would be replaced by topic
-        String prompt = String.format("New %s Name:", topic);
+        String prompt = String.format("%s Name:", topic);
         String desc = String.format("%s description:", topic);
 
         title.setText(prompt);

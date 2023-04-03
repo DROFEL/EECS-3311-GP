@@ -11,6 +11,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.AnnotationBinder;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.resource.transaction.spi.TransactionStatus;
 
 
 /**
@@ -35,7 +36,9 @@ public abstract class DAO<T, U, P> {
     }
 
     public void close(){
-        tx.commit();
+        if (session.getTransaction().getStatus() != TransactionStatus.COMMITTED){
+            tx.commit();
+        }
         session.close();
     }
 

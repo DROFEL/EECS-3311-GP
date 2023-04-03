@@ -66,6 +66,11 @@ public class ProjectController implements Initializable {
 
         prompt.submit.setOnAction((event) -> {
             projectLabel.setText(prompt.title_field.getText());
+            project.projectName = prompt.title_field.getText();
+
+            ProjectRepository repo = new ProjectRepository();
+            repo.update(project);
+
             System.out.println("add project instance to DB");
             gui.getStage().close();
         });

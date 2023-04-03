@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public class Project implements ParentDependant<Integer, Integer> {
     @Id
     @Column(name="projectID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int projectID;
     @Column(name="ownerID")
     public int ownerID;
@@ -29,5 +30,6 @@ public class Project implements ParentDependant<Integer, Integer> {
     @Override
     public void setID(Integer id) {
         projectID = id;
+        System.out.println("set id" + id);
     }
 }

@@ -8,6 +8,7 @@ import javax.persistence.*;
 public class Task implements ParentDependant<Integer, Integer>{
     @Id
     @Column(name="taskID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int taskID;
 //    @ManyToOne
 //    @JoinColumn(name="projectID")
