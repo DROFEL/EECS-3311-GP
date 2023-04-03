@@ -6,7 +6,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<fx:root prefHeight="44.0" prefWidth="1107.0" type="Pane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.eecs_3311_team_3.controllers.ProjectEntityController">
+<fx:root prefHeight="44.0" prefWidth="1107.0" type="Pane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.eecs_3311_team_3.controllers.ProjectEntityController">
    <children>
       <Button id="openButton" layoutX="1052.0" layoutY="2.0" mnemonicParsing="false" onAction="#openProject" text="Open" />
       <Label fx:id="projectLabel" text="Project 1">

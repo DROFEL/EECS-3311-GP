@@ -5,13 +5,12 @@ import com.eecs_3311_team_3.data_access.TaskRepository;
 import com.eecs_3311_team_3.data_model.Project;
 import com.eecs_3311_team_3.data_model.Task;
 
-import com.eecs_3311_team_3.loadGUI;
+import com.eecs_3311_team_3.LoadGUI;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
-import javafx.stage.Stage;
 
 import static javafx.application.Application.launch;
 
@@ -55,11 +54,10 @@ public class ProjectController {
     // pops open a prompt to enter info about project
     public void promptEdit(){
         System.out.println("Project prompt opened");
-        System.out.println(projectLabel.getText());
-        loadGUI gui = initPrompt();
+        LoadGUI gui = initPrompt();
         InfoPrompt prompt = (InfoPrompt) gui.getController();
-
         prompt.setTopic("Project");
+
         prompt.submit.setOnAction((event) -> {
             projectLabel.setText(prompt.title_field.getText());
             System.out.println("add project instance to DB");
@@ -70,18 +68,20 @@ public class ProjectController {
 
     public void promptTask(){
         System.out.println("Task prompt opened");
-        loadGUI taskPopup = initPrompt();
-        InfoPrompt prompt = (InfoPrompt) taskPopup.getController();
+        LoadGUI gui = initPrompt();
+        InfoPrompt prompt = (InfoPrompt) gui.getController();
         prompt.setTopic("Task");
+
         prompt.submit.setOnAction((event) -> {
             System.out.println("add new task to db");
-            // show task on GUI on gridpane
-            taskPopup.getStage().close();
+            // task has been added; show task on GUI on gridpane
+            gui.getStage().close();
         });
+        gui.show();
     }
 
-    public loadGUI initPrompt(){
-        loadGUI gui = new loadGUI("good/infoPrompt.fxml");
+    public LoadGUI initPrompt(){
+        LoadGUI gui = new LoadGUI("good/infoPrompt.fxml");
         gui.getStage().initModality(Modality.APPLICATION_MODAL);
         return gui;
     }

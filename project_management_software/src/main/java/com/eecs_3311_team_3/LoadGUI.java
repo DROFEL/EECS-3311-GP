@@ -1,6 +1,5 @@
 package com.eecs_3311_team_3;
 
-import com.eecs_3311_team_3.App;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -9,10 +8,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 // class for wrapping all the components nessacary for configuring GUI
-public class loadGUI {
+public class LoadGUI {
     private FXMLLoader loader;
     private Stage stage;
-    public loadGUI(String fxml){
+    public LoadGUI(String fxml){
         loader = new FXMLLoader(App.class.getResource(fxml));
         try {
             Parent root = loader.load();

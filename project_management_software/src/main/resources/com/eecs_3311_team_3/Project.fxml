@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.eecs_3311_team_3.controllers.ProjectController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.eecs_3311_team_3.controllers.ProjectController">
     <center>
         <GridPane gridLinesVisible="true" hgap="10.0" vgap="10.0" BorderPane.alignment="CENTER">
             <columnConstraints>
@@ -47,7 +47,7 @@
         </GridPane>
     </center>
     <top>
-        <VBox prefHeight="110.0" prefWidth="763.0" spacing="10.0" style="-fx-border-color: RED;" BorderPane.alignment="CENTER">
+        <VBox prefHeight="110.0" prefWidth="763.0" spacing="10.0" BorderPane.alignment="CENTER">
             <children>
                 <MenuBar>
                     <menus>
@@ -75,7 +75,7 @@
                                 <Font size="24.0" />
                             </font>
                             <padding>
-                                <Insets left="10.0" />
+                                <Insets left="10.0" top="5.0" />
                             </padding>
                         </Label>
                         <HBox alignment="TOP_RIGHT" prefHeight="75.0" prefWidth="525.0" spacing="20.0" HBox.hgrow="ALWAYS">
