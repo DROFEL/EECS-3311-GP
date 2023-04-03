@@ -9,18 +9,18 @@ public class Task implements ParentDependant<Integer, Integer>{
     @Id
     @Column(name="taskID")
     public int taskID;
-    @ManyToOne
-    @JoinColumn(name="projectID")
-//    @Column(name="projectID")
+//    @ManyToOne
+//    @JoinColumn(name="projectID")
+    @Column(name="projectID")
     public int projectID;
     @Column(name="taskName")
     public String name;
     @Column(name="taskDescription")
     public String description;
-    @Column(name="taskStatus")
-    public String status;
-    @Column(name="isPending")
-    public Boolean bPending;
+//    @Column(name="taskStatus")
+//    public String status;
+//    @Column(name="isPending")
+//    public Boolean bPending;
 
 
     public Task(){
@@ -46,13 +46,13 @@ public class Task implements ParentDependant<Integer, Integer>{
         return description;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public boolean isbPending() {
-        return bPending;
-    }
+//    public String getStatus() {
+//        return status;
+//    }
+//
+//    public boolean isbPending() {
+//        return bPending;
+//    }
 
     public void setName(String name) {
         this.name = name;
@@ -62,13 +62,13 @@ public class Task implements ParentDependant<Integer, Integer>{
         this.description = description;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public void setbPending(boolean bPending) {
-        this.bPending = bPending;
-    }
+//    public void setStatus(String status) {
+//        this.status = status;
+//    }
+//
+//    public void setbPending(boolean bPending) {
+//        this.bPending = bPending;
+//    }
 
 
     @Override

@@ -49,10 +49,11 @@ public class ProjectDAO extends DAO_ParentDependant<Project, Integer, Integer> {
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery<Project> cr = cb.createQuery(Project.class);
         Root<Project> root = cr.from(Project.class);
-        cr.select(root).where(root.get("projectID").in(ParentId));
+        cr.select(root).where(root.get("ownerID").in(ParentId));
 
         Query<Project> query = session.createQuery(cr);
         List<Project> results = query.getResultList();
+        System.out.println(results);
 
         return new ArrayList<Project>(results);
     }

@@ -19,7 +19,7 @@ import javafx.stage.Modality;
 
 import static javafx.application.Application.launch;
 
-public class ProjectController {
+public class ProjectController implements Initializable {
 
     @FXML
     GridPane grid;
@@ -36,15 +36,16 @@ public class ProjectController {
         System.out.println("Project View Opened");
     }
 
-//    @Override
-//    public void initialize(URL arg0, ResourceBundle arg1) {
-//        ProjectRepository repo = new ProjectRepository();
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        ProjectRepository repo = new ProjectRepository();
+        projectLabel.setText(project.projectName);
 //        project = repo.get(project.getProjectId());
 //        for (Task task : project.getTasks()){
 //            grid.add(new TaskComponent(task), (taskNum % 4), (taskNum/4));
 //            ta    skNum++;
 //        }
-//    }
+    }
 
     public void addTask(){
         TaskRepository repo = new TaskRepository();

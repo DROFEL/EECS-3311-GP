@@ -45,11 +45,11 @@ public abstract class DAO_ParentDependant<T extends ParentDependant<P, U>, U, P>
 
     public void update(T instance) {
         session.merge(instance);
-        tx.commit();
+//        tx.commit();
     }
 
     public void delete(T instance){
         session.delete(instance);
-        tx.commit();
+//        tx.commit();
     }
 }

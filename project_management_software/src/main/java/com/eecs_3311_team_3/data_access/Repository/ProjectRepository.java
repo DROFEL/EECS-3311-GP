@@ -21,7 +21,7 @@ public class ProjectRepository implements PM_Repository<Project, Integer, Intege
     @Override
     public Project get(Integer id) {
         Project project = projectDAO.get(id);
-        project.setTaskList(taskDAO.getAll(project.projectID));
+//        project.setTaskList(taskDAO.getAll(project.projectID));
         return project;
     }
 
@@ -29,7 +29,7 @@ public class ProjectRepository implements PM_Repository<Project, Integer, Intege
     public ArrayList<Project> getAll(Integer ParentId) {
         ArrayList<Project> projects = projectDAO.getAll(ParentId);
         for (Project project : projects) {
-            project.setTaskList(taskDAO.getAll(project.projectID));
+//            project.setTaskList(taskDAO.getAll(project.projectID));
         }
         return projects;
     }
@@ -42,16 +42,10 @@ public class ProjectRepository implements PM_Repository<Project, Integer, Intege
     @Override
     public void update(Project instance) {
         projectDAO.update(instance);
-        for (Task i : instance.getTaskList()) {
-            taskDAO.update(i);
-        }
     }
 
     @Override
     public void delete(Project instance) {
-        for (Task t : instance.getTaskList()) {
-            taskDAO.delete(t);
-        }
         projectDAO.delete(instance);
     }
 

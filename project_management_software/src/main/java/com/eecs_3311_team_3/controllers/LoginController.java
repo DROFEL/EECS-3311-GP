@@ -1,20 +1,18 @@
 package com.eecs_3311_team_3.controllers;
 
 import com.eecs_3311_team_3.App;
-import com.eecs_3311_team_3.DatabaseConnection;
 
+import com.eecs_3311_team_3.CacheSinglenton;
 import com.eecs_3311_team_3.data_access.Repository.UserRepository;
 import com.eecs_3311_team_3.data_model.User;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 
 import java.io.IOException;
-import java.sql.*;
+
 import javafx.scene.control.*;
 import javafx.scene.effect.GaussianBlur;
 import javafx.scene.control.Alert.AlertType;
@@ -53,13 +51,15 @@ public class LoginController {
 
 		UserRepository repo = new UserRepository();
 		User user = repo.get(usernameTextField.getText());
+
 		if(user == null) {
             loginMessageLabel.setText("Invalid login attempt");
         } else {
             if(user.password.equals(passwordPasswordField.getText()) ){
                 loginMessageLabel.setText("Login accepted");
                 try {
-                    App.setRoot("Project");
+                    CacheSinglenton.userID = user.userID;
+                    App.setRoot("ProjectBrowser");
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
