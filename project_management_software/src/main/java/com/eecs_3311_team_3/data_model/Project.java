@@ -21,16 +21,6 @@ public class Project implements ParentDependant<Integer, Integer> {
     @Column(name="projectDescription")
     public String projectDescription;
 
-    ArrayList<Task> taskList;
-
-    public ArrayList<Task> getTaskList() {
-        return taskList;
-    }
-
-    public void setTaskList(ArrayList<Task> taskList) {
-        this.taskList = taskList;
-    }
-
     @Override
     public void setParentID(Integer parentID) {
         ownerID = parentID;

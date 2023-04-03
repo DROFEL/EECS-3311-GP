@@ -38,7 +38,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- Table `PMS`.`PROJECT`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `PMS`.`PROJECT` (
-  `projectID` INT NOT NULL,
+  `projectID` INT NOT NULL AUTO_INCREMENT,
   `projectName` VARCHAR(50) NULL DEFAULT NULL,
   `projectDescription` VARCHAR(500) NULL,
   `PROJECT_projectID` INT NULL,

@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.eecs_3311_team_3.App;
+import com.eecs_3311_team_3.CacheSinglenton;
 import com.eecs_3311_team_3.data_model.Project;
 
 import javafx.fxml.FXML;
@@ -21,6 +22,7 @@ public class ProjectEntityController implements Initializable {
     @FXML
     private void openProject() throws IOException {
         ProjectController.project = this.project;
+        CacheSinglenton.projectID = project.projectID;
         App.setRoot("Project");
     }
 
