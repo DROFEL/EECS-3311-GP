@@ -23,10 +23,6 @@ public class TaskController{
 
     private Task task;
 
-    @FXML
-    public void initialize() {
-        
-    }
 
     @FXML
     private void openTaskPage() throws IOException{

@@ -1,4 +1,4 @@
-package com.data_access.DAO;
+package com.eecs_3311_team_3.test.data_access.DAO;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
