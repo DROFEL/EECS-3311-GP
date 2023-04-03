@@ -3,12 +3,20 @@ package com.eecs_3311_team_3.controllers;
 import com.eecs_3311_team_3.App;
 import com.eecs_3311_team_3.DatabaseConnection;
 
+import com.eecs_3311_team_3.data_access.Repository.UserRepository;
+import com.eecs_3311_team_3.data_model.User;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
-import javafx.scene.effect.GaussianBlur;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
+import javafx.scene.control.TextField;
+import javafx.scene.control.PasswordField;
+
+import java.io.IOException;
 import java.sql.*;
+import javafx.scene.control.*;
+import javafx.scene.effect.GaussianBlur;
 import javafx.scene.control.Alert.AlertType;
 
 public class LoginController {
@@ -16,7 +24,7 @@ public class LoginController {
 	// values are dyamically injected as they change
 	// initalize() vs constructor() https://stackoverflow.com/questions/34785417/javafx-fxml-controller-constructor-vs-initialize-method
     @FXML private Label title;
-    
+
     @FXML private Label loginMessageLabel;
     
     @FXML private TextField usernameTextField;
@@ -42,28 +50,22 @@ public class LoginController {
     }
 
 
-    
-    public void validateLogin() {
-    	DatabaseConnection connectNow = new DatabaseConnection();
-    	Connection connectDB = connectNow.getConnection();
-    	
-    	String verifyLogin = "SELECT count(1) FROM UserAccounts WHERE username = '" + usernameTextField.getText() + "' AND _password = '" + passwordPasswordField.getText() + "'";
 
-    	try {
-    		Statement statement = connectDB.createStatement();
-    		ResultSet queryResult = statement.executeQuery(verifyLogin);
-    		
-    		System.out.println(queryResult.toString());
-    		
-    		while(queryResult.next()) {
-    			if (queryResult.getInt(1) == 1) {
-    				loginMessageLabel.setText("Login accepted");
-    			} else {
-    				loginMessageLabel.setText("Invalid login attempt");
-    			}
-    		}
-    	} catch(Exception e) {
-    		e.printStackTrace();
-    	}
+    public void validateLogin() {
+
+		UserRepository repo = new UserRepository();
+		User user = repo.get(usernameTextField.getText());
+		if(user == null) {
+            loginMessageLabel.setText("Invalid login attempt");
+        } else {
+            if(user.password.equals(passwordPasswordField.getText()) ){
+                loginMessageLabel.setText("Login accepted");
+                try {
+                    App.setRoot("Project");
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
     }
 }

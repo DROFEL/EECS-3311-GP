@@ -41,7 +41,7 @@ public abstract class DAO<T, U, P> {
 
     public abstract T get(U id);
 
-    public abstract ArrayList<T> getAll(P ParentId);
+    public abstract ArrayList<T> getAll(P mainKey);
 
     public abstract T create(P ParentId);
 

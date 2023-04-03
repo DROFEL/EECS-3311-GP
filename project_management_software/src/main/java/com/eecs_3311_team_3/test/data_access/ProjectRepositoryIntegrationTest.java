@@ -1,15 +1,6 @@
 package com.eecs_3311_team_3.test.data_access;
 import static org.junit.Assert.assertEquals;
 
-import java.util.ArrayList;
-
-import org.junit.Test;
-
-import com.eecs_3311_team_3.data_access.DBController;
-import com.eecs_3311_team_3.data_access.ProjectRepository;
-import com.eecs_3311_team_3.data_model.Project;
-import com.eecs_3311_team_3.data_model.Task;
-
 public class ProjectRepositoryIntegrationTest {
     // @Test
     // public void Test(){

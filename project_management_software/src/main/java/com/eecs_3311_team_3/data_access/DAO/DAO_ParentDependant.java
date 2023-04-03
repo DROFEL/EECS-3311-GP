@@ -1,11 +1,17 @@
 package com.eecs_3311_team_3.data_access.DAO;
 
 import com.eecs_3311_team_3.data_model.ParentDependant;
+import com.eecs_3311_team_3.data_model.User;
+import org.hibernate.query.Query;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 import java.security.Key;
 import java.util.ArrayList;
+import java.util.List;
 
 public abstract class DAO_ParentDependant<T extends ParentDependant<P, U>, U, P> extends DAO<T, U, P>{
     public T get(U id){

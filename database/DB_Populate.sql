@@ -1,5 +1,7 @@
-INSERT INTO UserAccounts(firstname, lastname, username, _password) VALUES ('dev/QA', 'team', 'DevQAlogin', 'SQLigma');
-INSERT INTO UserAccounts(firstname, lastname, username, _password) VALUES ('client/user', 'team', 'ClientUserlogin', 'SQLigma');
+insert into USER(userName, fullName, email, password) values
+("dev", "Dev/QA account", "example@gmail.com", "root"),
+("client", "client/user", "example@gmail.com", "ClientPassword");
+
 
 insert into PROJECT (projectName, projectDescription) values
 ("Some project", "Dedeciptription");

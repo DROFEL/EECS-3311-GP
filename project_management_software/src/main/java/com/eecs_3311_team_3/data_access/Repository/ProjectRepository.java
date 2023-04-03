@@ -1,4 +1,4 @@
-package com.eecs_3311_team_3.data_access;
+package com.eecs_3311_team_3.data_access.Repository;
 
 import java.util.ArrayList;
 
@@ -7,7 +7,7 @@ import com.eecs_3311_team_3.data_access.DAO.TaskDAO;
 import com.eecs_3311_team_3.data_model.Project;
 import com.eecs_3311_team_3.data_model.Task;
 
-public class ProjectRepository implements PM_Repository<Project, Integer, String> {
+public class ProjectRepository implements PM_Repository<Project, Integer, Integer> {
 
     ProjectDAO projectDAO;
     TaskDAO taskDAO; 
@@ -21,38 +21,38 @@ public class ProjectRepository implements PM_Repository<Project, Integer, String
     @Override
     public Project get(Integer id) {
         Project project = projectDAO.get(id);
-        project.initTasks(taskDAO.getAll(project.getProjectId()));
+        project.setTaskList(taskDAO.getAll(project.projectID));
         return project;
     }
 
     @Override
-    public ArrayList<Project> getAll(String ParentId) {
+    public ArrayList<Project> getAll(Integer ParentId) {
         ArrayList<Project> projects = projectDAO.getAll(ParentId);
         for (Project project : projects) {
-            project.initTasks(taskDAO.getAll(project.getProjectId()));
+            project.setTaskList(taskDAO.getAll(project.projectID));
         }
         return projects;
     }
 
     @Override
-    public Project add(String ParentId) {
+    public Project add(Integer ParentId) {
         return projectDAO.create(ParentId);
     }
 
     @Override
     public void update(Project instance) {
         projectDAO.update(instance);
-        for (Task i : instance.getTasks()) {
+        for (Task i : instance.getTaskList()) {
             taskDAO.update(i);
         }
     }
 
     @Override
     public void delete(Project instance) {
-        for (Task t : instance.getTasks()) {
+        for (Task t : instance.getTaskList()) {
             taskDAO.delete(t);
         }
         projectDAO.delete(instance);
     }
-    
+
 }

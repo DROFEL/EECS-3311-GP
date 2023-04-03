@@ -9,9 +9,9 @@ public class Task implements ParentDependant<Integer, Integer>{
     @Id
     @Column(name="taskID")
     public int taskID;
-//    @ManyToOne
-//    @JoinColumn(name="projectID")
-    @Column(name="projectID")
+    @ManyToOne
+    @JoinColumn(name="projectID")
+//    @Column(name="projectID")
     public int projectID;
     @Column(name="taskName")
     public String name;

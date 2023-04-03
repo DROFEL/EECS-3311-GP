@@ -1,9 +1,5 @@
 package com.eecs_3311_team_3.test.data_access;
 
-import org.junit.Test;
-
-import com.eecs_3311_team_3.data_access.DBController;
-
 public class DBControllerTest {
     
     // @Test

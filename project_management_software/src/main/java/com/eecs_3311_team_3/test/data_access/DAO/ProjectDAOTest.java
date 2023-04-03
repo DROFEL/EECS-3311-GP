@@ -3,13 +3,9 @@ package com.eecs_3311_team_3.test.data_access.DAO;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
-import com.eecs_3311_team_3.data_access.DBController;
-import com.eecs_3311_team_3.data_access.DAO.ProjectDAO;
-import com.eecs_3311_team_3.data_model.Project;
+import com.eecs_3311_team_3.data_access.Repository.DBController;
 
 public class ProjectDAOTest {
 

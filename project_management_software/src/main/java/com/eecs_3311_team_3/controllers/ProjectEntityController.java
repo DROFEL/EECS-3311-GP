@@ -26,7 +26,7 @@ public class ProjectEntityController implements Initializable {
 
     public void setProject(Project project){
         this.project = project;
-        projectLabel.setText(project.getProjectname());
+        projectLabel.setText(project.projectName);
     }
 
     @Override

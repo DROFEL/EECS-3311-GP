@@ -1,85 +1,43 @@
 package com.eecs_3311_team_3.data_model;
 
-import org.hibernate.annotations.Entity;
+import org.hibernate.annotations.*;
 
+
+import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.ArrayList;
 
 @Entity
-public class Project{
+@Table(name="PROJECT")
+public class Project implements ParentDependant<Integer, Integer> {
+    @Id
+    @Column(name="projectID")
+    public int projectID;
+    @Column(name="ownerID")
+    public int ownerID;
+    @Column(name="projectName")
+    public String projectName;
+    @Column(name="projectDescription")
+    public String projectDescription;
 
-    private int projectID;
-    private String name;
-    private String description;
-    private ArrayList<Task> PendingTasks = null;
-    
-    
-    
-    //Default Constructor 
-    public Project () {
-    
-    projectID=0;
-    this.name="Untitled Project";
-    this.description= "This is a new Project";
-    this.PendingTasks= new ArrayList<Task>();
-    
-    }
-    
-    // Constructor 
-    public Project(int projectID){
-        this.projectID = projectID;
+    ArrayList<Task> taskList;
+
+    public ArrayList<Task> getTaskList() {
+        return taskList;
     }
 
-    public Project (int projectID, String name, String description){
-        this.projectID= projectID;
-        this.name = name;
-        this.description = description;
-    
-    }
-    
-    // Method to add a task to list of tasks for project 
-    public boolean addTask(Task task){
-        PendingTasks.add(task);
-        return true; 
+    public void setTaskList(ArrayList<Task> taskList) {
+        this.taskList = taskList;
     }
 
-    public void initTasks(ArrayList<Task> tasks){
-        if(PendingTasks == null){
-            PendingTasks = tasks;
-        }
+    @Override
+    public void setParentID(Integer parentID) {
+        ownerID = parentID;
     }
 
-    public ArrayList<Task> getTasks(){
-        return PendingTasks;
+    @Override
+    public void setID(Integer id) {
+        projectID = id;
     }
-    
-    //method to get the project id 
-    public int getProjectId(){
-    
-    return this.projectID;
-    }
-    
-    //method to get project name 
-    
-    public String getProjectname(){
-    
-    return this.name;
-    
-    
-    }
-    
-    //method to get project description 
-    
-    public String getProjectDescription(){
-    
-    return this.description;
-    }
-    
-    // method to set project name 
-    public void setProjectName (String name){
-        this.name = name;
-    }
-    
-    
-    
-    
-    }
+}

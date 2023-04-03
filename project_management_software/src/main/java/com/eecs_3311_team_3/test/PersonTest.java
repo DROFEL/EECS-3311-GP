@@ -2,7 +2,7 @@ package com.eecs_3311_team_3.test;
 
 import org.junit.Test;
 
-import com.eecs_3311_team_3.data_model.Person;
+//import com.eecs_3311_team_3.data_model.Person;
 
 import static org.junit.Assert.*;
 
@@ -13,8 +13,8 @@ import java.util.List;
 
 class PersonTest {
 
-	private Person person;
-    private List<String> personTeams;
+//	private Person person;
+//    private List<String> personTeams;
 
 
 
