@@ -39,7 +39,10 @@ public class UserDAO extends DAO<User, String, String>{
     public User create(String username) {
             User result = new User();
             result.userName = username;
+            result.password = "password";
+            System.out.println("no password");
             int resultID = (int)session.save(result);
+            System.out.println("usercreated");
             result.userID = resultID;
             return result;
     }

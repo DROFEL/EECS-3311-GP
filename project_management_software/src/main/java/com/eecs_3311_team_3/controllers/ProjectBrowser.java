@@ -50,6 +50,12 @@ public class ProjectBrowser implements Initializable {
         gui.show();
     }
 
+    @FXML
+    private void logout() throws IOException {
+        App.setRoot("good/Login");
+    }
+
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         ProjectRepository repo = new ProjectRepository();
