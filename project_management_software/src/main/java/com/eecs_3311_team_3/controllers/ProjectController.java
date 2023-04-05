@@ -1,8 +1,11 @@
 package com.eecs_3311_team_3.controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.eecs_3311_team_3.App;
+import com.eecs_3311_team_3.CacheSinglenton;
 import com.eecs_3311_team_3.components.TaskComponent;
 import com.eecs_3311_team_3.data_access.Repository.ProjectRepository;
 import com.eecs_3311_team_3.data_access.Repository.TaskRepository;
@@ -28,7 +31,7 @@ public class ProjectController implements Initializable {
     @FXML
     Button newTaskButton;
 
-    private int taskNum = 0;
+    private int taskNum = 4;
 
     public static Project project;
 
@@ -39,12 +42,14 @@ public class ProjectController implements Initializable {
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         ProjectRepository repo = new ProjectRepository();
+        TaskRepository taskRepo = new TaskRepository();
         projectLabel.setText(project.projectName);
-//        project = repo.get(project.getProjectId());
-//        for (Task task : project.getTasks()){
-//            grid.add(new TaskComponent(task), (taskNum % 4), (taskNum/4));
-//            ta    skNum++;
-//        }
+        project = repo.get(CacheSinglenton.projectID);
+        System.out.println(project.projectID);
+        for (Task task : taskRepo.getAll(project.projectID)){
+            grid.add(new TaskComponent(task), taskNum%4, taskNum/4);
+            taskNum++;
+        }
     }
 
     public void addTask(){
@@ -66,6 +71,11 @@ public class ProjectController implements Initializable {
 
         prompt.submit.setOnAction((event) -> {
             projectLabel.setText(prompt.title_field.getText());
+            project.projectName = prompt.title_field.getText();
+
+            ProjectRepository repo = new ProjectRepository();
+            repo.update(project);
+
             System.out.println("add project instance to DB");
             gui.getStage().close();
         });
@@ -80,10 +90,21 @@ public class ProjectController implements Initializable {
 
         prompt.submit.setOnAction((event) -> {
             System.out.println("add new task to db");
-            // task has been added; show task on GUI on gridpane
+            TaskRepository repo = new TaskRepository();
+            Task task = repo.add(CacheSinglenton.projectID);
+            task.setName(prompt.title_field.getText());
+            task.setDescription(prompt.desc_field.getText());
+            grid.add(new TaskComponent(task), (taskNum % 4), (taskNum/4));
+            taskNum++;
+
+            repo.update(task);
             gui.getStage().close();
         });
         gui.show();
+    }
+
+    public void exitProject() throws IOException {
+        App.setRoot("ProjectBrowser");
     }
 
     public LoadGUI initPrompt(){

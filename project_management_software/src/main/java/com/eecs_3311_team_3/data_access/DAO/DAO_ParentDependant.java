@@ -3,6 +3,7 @@ package com.eecs_3311_team_3.data_access.DAO;
 import com.eecs_3311_team_3.data_model.ParentDependant;
 import com.eecs_3311_team_3.data_model.User;
 import org.hibernate.query.Query;
+import org.hibernate.resource.transaction.spi.TransactionStatus;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -28,6 +29,7 @@ public abstract class DAO_ParentDependant<T extends ParentDependant<P, U>, U, P>
             result.setParentID(ParentId);
             U resultID = (U)session.save(result);
             result.setID(resultID);
+            session.flush();
             tx.commit();
 
             return (T) result;
@@ -45,7 +47,8 @@ public abstract class DAO_ParentDependant<T extends ParentDependant<P, U>, U, P>
 
     public void update(T instance) {
         session.merge(instance);
-//        tx.commit();
+        tx.commit();
+
     }
 
     public void delete(T instance){

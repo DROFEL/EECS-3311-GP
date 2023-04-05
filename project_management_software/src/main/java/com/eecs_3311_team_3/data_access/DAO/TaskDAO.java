@@ -21,7 +21,7 @@ public class TaskDAO extends DAO_ParentDependant<Task, Integer, Integer> {
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery<Task> cr = cb.createQuery(Task.class);
         Root<Task> root = cr.from(Task.class);
-        cr.select(root).where(root.get("taskID").in(ParentId));
+        cr.select(root).where(root.get("projectID").in(ParentId));
 
         Query<Task> query = session.createQuery(cr);
         List<Task> results = query.getResultList();

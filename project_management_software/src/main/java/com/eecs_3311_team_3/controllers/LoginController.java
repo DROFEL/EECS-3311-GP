@@ -3,6 +3,8 @@ package com.eecs_3311_team_3.controllers;
 import com.eecs_3311_team_3.App;
 
 import com.eecs_3311_team_3.CacheSinglenton;
+import com.eecs_3311_team_3.LoadGUI;
+import com.eecs_3311_team_3.data_access.Repository.ProjectRepository;
 import com.eecs_3311_team_3.data_access.Repository.UserRepository;
 import com.eecs_3311_team_3.data_model.User;
 import javafx.fxml.FXML;
@@ -16,6 +18,7 @@ import java.io.IOException;
 import javafx.scene.control.*;
 import javafx.scene.effect.GaussianBlur;
 import javafx.scene.control.Alert.AlertType;
+import javafx.stage.Modality;
 
 public class LoginController {
 
@@ -45,6 +48,30 @@ public class LoginController {
         }
     }
 
+    @FXML
+    private void signup(ActionEvent e){
+        System.out.println("signup attempted");
+
+        LoadGUI gui = initPrompt();
+        CreateNewAccountPromptController prompt = (CreateNewAccountPromptController) gui.getController();
+
+        prompt.submit.setOnAction((event) -> {
+            UserRepository repo = new UserRepository();
+            User user = repo.add(prompt.username.getText());
+            user.password = prompt.password.getText();
+            repo.update(user);
+
+            gui.getStage().close();
+        });
+        gui.show();
+
+    }
+
+    public LoadGUI initPrompt(){
+        LoadGUI gui = new LoadGUI("good/RegisterPrompt.fxml");
+        gui.getStage().initModality(Modality.APPLICATION_MODAL);
+        return gui;
+    }
 
 
     public void validateLogin() {

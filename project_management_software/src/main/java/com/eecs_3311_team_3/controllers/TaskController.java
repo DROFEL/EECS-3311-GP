@@ -14,7 +14,7 @@ public class TaskController{
     @FXML
     private Label taskLable;
     @FXML
-    private Text textDescription;
+    private Label taskDescription;
     @FXML
     private Text status;
 
@@ -31,5 +31,7 @@ public class TaskController{
 
     public void setTask(Task task){
         this.task = task;
+        taskLable.setText(task.name);
+        taskDescription.setText(task.description);
     }
 }
