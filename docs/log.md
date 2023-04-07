@@ -362,14 +362,107 @@ JavaFX loading and applying data
 3h
 6h
 
+Team meeting
+03/11/2023
+Organizing for Itr3 requirements
+2hr
+2hr
 
-#### 3/19/2023
+Richard / Preet / Mehrsa
+3/17/2023
+QA meeting
+1 hr
+1 hr
 
-Patrick: Fixed login screen fxml and did some refactorintg
+Richard / Preet
+3/17/2023
+QA bug report
+2 hr
+2 hr
 
-#### 3/21/2023
+Team meeting
+03/19/2023
+Bug fix review
+2hr
+2hr
 
-Patrick : Added new `inputPrompt.fxml` GUI, and reworked controllers/`QuickDisplay`
+Patrick
+3/19/2023
+Fixed login screen fxml and did some refactorintg
+3hr
+3hr
+Apurva 
+03/20/2023
+Initial changes to planning document
+1 hr 
+2hr 
 
-## 3/27/2023
-Patrick: Controller can now access db methods, can add entries into table, and also refactored some GUI code 
+Patrick
+3/21/2023
+Added new inputPront.fxml GUI, and reworked controllers/QuickDisplay
+2hr
+3hr
+Team meeting
+03/24/2023
+Refactoring 
+2hr
+2hr
+
+Patrick
+3/27/2023
+Controller can now access db methods, can add entries into table, and also refactored some GUI code
+3hr
+3hr
+
+Team meeting 
+04/01/2023
+Presentation preparation
+3hr
+3hr
+Preet 
+4/02/2023
+Work on presentation 
+2hr
+2hr
+
+Richard 
+4/04/2023
+Refactoring Document
+1 hr
+1 hr
+
+Preet 
+4/05/2023
+Finished up presentation
+1hr 
+1hr
+
+Apurva
+04/05/2023
+Retrospective meeting 
+1hr
+1hr
+
+Richard
+4/06/2023
+Fixing Report Issues Document
+1 hr
+1 hr
+
+Apurva
+04/06/2023
+Retrospective meeting document 
+1hr
+2hr
+
+Apurva 
+04/06/2023
+Finalize Planning document 
+2hr 
+2hr 
+
+Team meeting
+04/06/2023
+Itr3 conclusion
+3hr
+3hr
